@@ -69,18 +69,19 @@ Ask for these if not provided:
 
 ---
 
-## Image keywords (LoremFlickr)
+## Image keywords (Unsplash API)
 
-| Slot | Keyword pattern | Example |
+Call `https://api.unsplash.com/photos/random?query=[query]&orientation=[orientation]&client_id=[KEY]` for each slot. Use `urls.regular` from the response.
+
+| Slot | Query string | Orientation |
 |---|---|---|
-| Hero | `restaurant,[cuisine],interior` | `restaurant,seafood,candles` |
-| Dish 1 image | `[dish name],food,plate` | `octopus,grilled,food` |
-| Dish 2 image | `[dish name],food,gourmet` | `fish,saltcrust,restaurant` |
-| Dish 3 image | `[dish name],food,dish` | `prawns,garlic,seafood` |
-| Atmosphere | `restaurant,ambiance,dining` | `restaurant,ambiance,dining` |
+| Hero | `restaurant [cuisine] interior candlelight` | `landscape` |
+| Dish 1 image | `[dish name] food plate gourmet` | `squarish` |
+| Dish 2 image | `[dish name] food restaurant dish` | `squarish` |
+| Dish 3 image | `[dish name] dessert food elegant` | `squarish` |
+| Atmosphere | `restaurant dining ambiance interior` | `landscape` |
 
-Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
-For dish card images use `https://loremflickr.com/600/400/keyword1,keyword2`
+Make each WebFetch call separately so images are distinct.
 
 ---
 

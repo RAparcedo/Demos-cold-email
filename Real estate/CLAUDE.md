@@ -68,17 +68,18 @@ Ask for these if not provided:
 
 ---
 
-## Image keywords (LoremFlickr)
+## Image keywords (Unsplash API)
 
-| Slot | Keyword pattern | Example |
+Call `https://api.unsplash.com/photos/random?query=[query]&orientation=[orientation]&client_id=[KEY]` for each slot. Use `urls.regular` from the response.
+
+| Slot | Query string | Orientation |
 |---|---|---|
-| Hero | `villa,pool,luxury,tenerife` | `villa,pool,luxury,tenerife` |
-| Property 1 | `villa,bedroom,interior` | `villa,bedroom,interior` |
-| Property 2 | `apartment,sea,view,balcony` | `apartment,sea,view,balcony` |
-| Property 3 | `penthouse,terrace,luxury` | `penthouse,terrace,luxury` |
+| Hero | `luxury villa pool canary islands` | `landscape` |
+| Property 1 | `villa bedroom interior luxury` | `squarish` |
+| Property 2 | `apartment sea view balcony` | `squarish` |
+| Property 3 | `penthouse terrace luxury rooftop` | `squarish` |
 
-Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
-For property card images use `https://loremflickr.com/600/400/keyword1,keyword2`
+Make each WebFetch call separately so images are distinct.
 
 ---
 

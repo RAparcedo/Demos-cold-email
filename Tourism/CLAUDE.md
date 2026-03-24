@@ -70,18 +70,19 @@ Ask for these if not provided:
 
 ---
 
-## Image keywords (LoremFlickr)
+## Image keywords (Unsplash API)
 
-| Slot | Keyword pattern | Example |
+Call `https://api.unsplash.com/photos/random?query=[query]&orientation=[orientation]&client_id=[KEY]` for each slot. Use `urls.regular` from the response.
+
+| Slot | Query string | Orientation |
 |---|---|---|
-| Hero | `[activity],tenerife,ocean` | `paragliding,tenerife,sky` |
-| Gallery image 1 | `[activity],action` | `catamaran,sailing` |
-| Gallery image 2 | `[activity],sea` | `boat,ocean,blue` |
-| Gallery image 3 | `tenerife,coast,landscape` | `tenerife,coast,landscape` |
-| Gallery image 4 | `[activity],adventure` | `snorkeling,underwater,fish` |
+| Hero | `[activity] tenerife ocean` | `landscape` |
+| Gallery image 1 | `[activity] action sport` | `squarish` |
+| Gallery image 2 | `[activity] sea water` | `squarish` |
+| Gallery image 3 | `tenerife coast landscape` | `squarish` |
+| Gallery image 4 | `[activity] adventure outdoor` | `squarish` |
 
-Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
-For gallery images use `https://loremflickr.com/600/400/keyword1,keyword2`
+Make each WebFetch call separately so images are distinct.
 
 ---
 
