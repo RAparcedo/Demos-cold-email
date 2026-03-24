@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solaris Estates — Luxury Property Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Nunito Sans', sans-serif; background: #f5f0e8; }
+    .cg { font-family: 'Cormorant Garamond', serif; }
+
+    @keyframes fadeIn    { from { opacity:0 } to { opacity:1 } }
+    @keyframes fadeInUp  { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes slideUp   { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+
+    .a-label  { animation: fadeIn    .7s ease both .1s; }
+    .a-title  { animation: fadeInUp  .9s ease both .25s; }
+    .a-sub    { animation: fadeInUp  .8s ease both .45s; }
+    .a-cta    { animation: fadeInUp  .7s ease both .65s; }
+    .a-strip  { animation: fadeIn    .7s ease both .85s; }
+
+    .prop-card { transition: transform .3s ease, box-shadow .3s ease; }
+    .prop-card:hover { transform: translateY(-5px); box-shadow: 0 24px 48px rgba(26,39,68,.14); }
+    .prop-card:hover .prop-img { transform: scale(1.06); }
+    .prop-img { transition: transform .5s ease; }
+
+    .prop-card:nth-child(1) { animation: slideUp .6s ease both .1s; }
+    .prop-card:nth-child(2) { animation: slideUp .6s ease both .25s; }
+    .prop-card:nth-child(3) { animation: slideUp .6s ease both .4s; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="relative min-h-screen flex flex-col justify-between">
+    <img
+      src="https://images.pexels.com/photos/4066865/pexels-photo-4066865.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Luxury villa with pool, Tenerife"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1A2744]/55 via-[#1A2744]/35 to-[#1A2744]/88"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-10">
+      <span class="a-label inline-block text-[#C9A84C] text-xs md:text-sm uppercase tracking-[.35em] font-light border border-[#C9A84C]/50 px-5 py-1.5 rounded-full mb-6">
+        Luxury Property · Tenerife
+      </span>
+      <h1 class="a-title cg font-light text-white text-[58px] sm:text-[82px] md:text-[112px] leading-none tracking-wide drop-shadow-2xl">
+        Solaris Estates
+      </h1>
+      <p class="a-sub cg italic text-white/70 text-xl sm:text-2xl md:text-3xl mt-5 max-w-lg leading-relaxed font-light">
+        Sun-drenched properties. Smart investments.
+      </p>
+      <div class="a-cta mt-10">
+        <a href="#" class="inline-block bg-[#C9A84C] hover:bg-[#d9b95c] text-white font-semibold text-sm md:text-base px-10 py-4 rounded-full tracking-widest uppercase transition-colors duration-300">
+          Browse Properties →
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="a-strip relative z-10 mx-4 mb-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-4">
+      <div class="grid grid-cols-3 divide-x divide-white/20 text-center text-white">
+        <div class="flex flex-col items-center gap-1 px-2">
+          <span class="cg text-2xl md:text-3xl font-light">14 yrs</span>
+          <span class="text-white/45 text-xs uppercase tracking-wider">in Tenerife</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 px-2">
+          <span class="cg text-2xl md:text-3xl font-light">340+</span>
+          <span class="text-white/45 text-xs uppercase tracking-wider">properties sold</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 px-2">
+          <span class="cg text-2xl md:text-3xl font-light">98%</span>
+          <span class="text-white/45 text-xs uppercase tracking-wider">client satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROPERTY LISTINGS ─────────────────────────────────── -->
+  <section class="bg-[#f5f0e8] py-20 px-4">
+    <p class="text-center text-[#C9A84C] text-xs uppercase tracking-[.35em] font-light mb-2">Current Listings</p>
+    <h2 class="cg text-[#1A2744] text-4xl md:text-5xl font-light text-center mb-12">Featured Properties</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+      <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-sm cursor-default">
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="https://images.pexels.com/photos/8134745/pexels-photo-8134745.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Villa Sol"
+            class="prop-img w-full h-full object-cover"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="absolute top-3 left-3 bg-[#C9A84C] text-white text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider">For Sale</span>
+        </div>
+        <div class="p-5">
+          <p class="cg text-[#1A2744] font-semibold text-xl">Villa Sol</p>
+          <p class="text-[#1A2744]/45 text-xs mt-1 uppercase tracking-wider">4 bed · Adeje Golf · Tenerife</p>
+          <p class="cg text-[#C9A84C] font-semibold text-2xl mt-3">€785,000</p>
+          <p class="text-[#1A2744]/55 text-xs mt-2 leading-relaxed">Private pool, landscaped gardens, panoramic golf course views.</p>
+        </div>
+      </div>
+
+      <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-sm cursor-default">
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="https://images.pexels.com/photos/31817156/pexels-photo-31817156.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Penthouse Mar"
+            class="prop-img w-full h-full object-cover"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="absolute top-3 left-3 bg-[#1A2744] text-white text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Sea View</span>
+        </div>
+        <div class="p-5">
+          <p class="cg text-[#1A2744] font-semibold text-xl">Penthouse Mar</p>
+          <p class="text-[#1A2744]/45 text-xs mt-1 uppercase tracking-wider">2 bed · Puerto Colón · Tenerife</p>
+          <p class="cg text-[#C9A84C] font-semibold text-2xl mt-3">€395,000</p>
+          <p class="text-[#1A2744]/55 text-xs mt-2 leading-relaxed">Wraparound terrace, Atlantic views, luxury marina building.</p>
+        </div>
+      </div>
+
+      <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-sm cursor-default">
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="https://images.pexels.com/photos/26859048/pexels-photo-26859048.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Villa Rosa"
+            class="prop-img w-full h-full object-cover"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="absolute top-3 left-3 bg-[#C9A84C] text-white text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider">New In</span>
+        </div>
+        <div class="p-5">
+          <p class="cg text-[#1A2744] font-semibold text-xl">Villa Rosa</p>
+          <p class="text-[#1A2744]/45 text-xs mt-1 uppercase tracking-wider">3 bed · Costa Adeje · Tenerife</p>
+          <p class="cg text-[#C9A84C] font-semibold text-2xl mt-3">€520,000</p>
+          <p class="text-[#1A2744]/55 text-xs mt-2 leading-relaxed">Heated pool, open-plan living, 10 min from Los Américas beach.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CLIENT PULL-QUOTE ─────────────────────────────────── -->
+  <section class="bg-[#1A2744] py-20 px-4 text-center">
+    <p class="cg text-[#C9A84C] text-5xl mb-4 leading-none">"</p>
+    <p class="cg italic text-white/85 text-xl md:text-2xl max-w-xl mx-auto leading-relaxed font-light">
+      From first viewing to handing over the keys, Solaris made buying in Tenerife feel effortless. We found our dream villa in under three weeks.
+    </p>
+    <p class="text-white/30 text-xs uppercase tracking-widest mt-6">— David & Claire H. · Costa Adeje</p>
+    <div class="mt-10">
+      <a href="#" class="inline-block border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-white font-semibold text-sm px-9 py-4 rounded-full tracking-widest uppercase transition-all duration-300">
+        Request a Viewing →
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • Most Tenerife property agency websites bury their listings behind slow search filters and dated design — this page puts three real properties with photos, prices, and locations in front of a buyer in seconds, which is exactly how modern buyers decide whether to get in touch.
+  • The frosted-glass stats strip (14 years, 340+ sales, 98% satisfaction) appears before the prospect has scrolled a pixel — trust signals at that position do more conversion work than any amount of copy on an About page nobody reads.
+  • The pull-quote section doubles as a second CTA with a "Request a Viewing" button, so buyers who scroll to the bottom are captured without having to scroll back up — a small detail that meaningfully reduces drop-off at the moment of intent.
+-->
