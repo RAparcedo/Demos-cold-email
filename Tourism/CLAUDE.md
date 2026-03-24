@@ -70,19 +70,30 @@ Ask for these if not provided:
 
 ---
 
-## Image keywords (Unsplash API)
+## Image pools (Unsplash CDN)
 
-Call `https://api.unsplash.com/photos/random?query=[query]&orientation=[orientation]&client_id=[KEY]` for each slot. Use `urls.regular` from the response.
+Full-width: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
+Gallery tiles: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
 
-| Slot | Query string | Orientation |
-|---|---|---|
-| Hero | `[activity] tenerife ocean` | `landscape` |
-| Gallery image 1 | `[activity] action sport` | `squarish` |
-| Gallery image 2 | `[activity] sea water` | `squarish` |
-| Gallery image 3 | `tenerife coast landscape` | `squarish` |
-| Gallery image 4 | `[activity] adventure outdoor` | `squarish` |
+### Hero — ocean / activity (pick 1)
+| ID | Subject |
+|---|---|
+| `1507525428034-b723cf961d3e` | Aerial tropical blue ocean |
+| `1544551379-6a23c4be5b37` | Catamaran sailing at sea |
+| `1506905925-078b57a3d8cd` | Sailboat on deep blue water |
+| `1504701954957-3b1d7a40ae49` | Aerial adventure / open sky |
+| `1476514525535-07fb3b4ae5f1` | Tenerife coastal landscape |
+| `1559494007-6d14ca52fc03` | Dramatic ocean waves |
 
-Make each WebFetch call separately so images are distinct.
+### Gallery tiles — mix of 4 (pick different IDs per teaser)
+| ID | Subject |
+|---|---|
+| `1559827260-dc66d52bef19` | Snorkeling / underwater |
+| `1513569771920-33898edde4b9` | Scuba diving |
+| `1503198579390-0a77e39cb14e` | Aerial adventure / paragliding |
+| `1524503033903-ad0f44dca5ac` | Outdoor adventure sport |
+| `1476514525535-07fb3b4ae5f1` | Coastal landscape |
+| `1505118380757-91f5f5632de0` | Surfer / wave action |
 
 ---
 

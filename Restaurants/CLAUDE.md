@@ -69,19 +69,37 @@ Ask for these if not provided:
 
 ---
 
-## Image keywords (Unsplash API)
+## Image pools (Unsplash CDN)
 
-Call `https://api.unsplash.com/photos/random?query=[query]&orientation=[orientation]&client_id=[KEY]` for each slot. Use `urls.regular` from the response.
+Full-width: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
+Cards: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
 
-| Slot | Query string | Orientation |
-|---|---|---|
-| Hero | `restaurant [cuisine] interior candlelight` | `landscape` |
-| Dish 1 image | `[dish name] food plate gourmet` | `squarish` |
-| Dish 2 image | `[dish name] food restaurant dish` | `squarish` |
-| Dish 3 image | `[dish name] dessert food elegant` | `squarish` |
-| Atmosphere | `restaurant dining ambiance interior` | `landscape` |
+### Hero — restaurant interior / ambiance (pick 1)
+| ID | Subject |
+|---|---|
+| `1517248135467-4c7edcad34c4` | Warm restaurant interior, bokeh lights |
+| `1592417817098-8fd3d2eb9673` | Candlelit dining table |
+| `1559339352-11d035aa65de` | Elegant restaurant evening |
+| `1414235077428-338989a2e8c0` | Restaurant / upscale dining |
+| `1551218808-d5a8b2df83ee` | Intimate dining room |
 
-Make each WebFetch call separately so images are distinct.
+### Dish cards — food close-ups (pick 3 different IDs)
+| ID | Subject |
+|---|---|
+| `1565299624946-b28f40a0ae38` | Pasta / gourmet plate |
+| `1414235077428-338989a2e8c0` | Colourful food bowl |
+| `1565958011703-44f9829ba187` | Grilled meat / seafood plate |
+| `1482049016688-2d3e1b311543` | Breakfast / brunch close-up |
+| `1540420773420-3366772f4999` | Seafood dish |
+| `1546069901-ba9599a7a5ae` | Fresh salad / greens |
+| `1546554137-f86b372c6dd5` | Elegant plated dessert |
+
+### Atmosphere — full-width (pick 1, different from hero)
+| ID | Subject |
+|---|---|
+| `1551218808-d5a8b2df83ee` | Cosy dining room |
+| `1559339352-11d035aa65de` | Evening restaurant interior |
+| `1517248135467-4c7edcad34c4` | Bokeh / warm light ambiance |
 
 ---
 
