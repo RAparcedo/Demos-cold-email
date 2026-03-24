@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Demos Cold Email — Tenerife Teaser Pages
 
 This project generates **single-screen HTML teaser pages** for cold email outreach targeting Tenerife businesses. Each page is a visual proof of concept to show prospects what their online presence could look like.
@@ -7,24 +11,24 @@ This project generates **single-screen HTML teaser pages** for cold email outrea
 ```
 /
 ├── CLAUDE.md                      ← you are here (global rules)
-├── tourism/
+├── Tourism/
 │   ├── CLAUDE.md                  ← surf schools, boat tours, excursions, etc.
-│   └── output/                    ← generated tourism teasers
-├── restaurant/
+│   └── Outputs/                   ← generated tourism teasers
+├── Restaurants/
 │   ├── CLAUDE.md                  ← restaurants, cafés, rooftop bars, etc.
-│   └── output/                    ← generated restaurant teasers
-└── real-estate/
+│   └── Outputs/                   ← generated restaurant teasers
+└── Real estate/
     ├── CLAUDE.md                  ← property agencies, villa sales, rentals, etc.
-    └── output/                    ← generated real estate teasers
+    └── Outputs/                   ← generated real estate teasers
 ```
 
 ## Which agent to use
 
 | Business type | Folder to work in |
 |---|---|
-| Surf school, boat tour, diving, hiking, excursions, whale watching | `tourism/` |
-| Restaurant, café, bar, tapas, brunch, rooftop | `restaurant/` |
-| Property agency, villa sales, rentals, investment | `real-estate/` |
+| Surf school, boat tour, diving, hiking, excursions, whale watching | `Tourism/` |
+| Restaurant, café, bar, tapas, brunch, rooftop | `Restaurants/` |
+| Property agency, villa sales, rentals, investment | `Real estate/` |
 
 When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in the matching folder.
 
@@ -37,7 +41,7 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Load fonts from **Google Fonts** — pick a font that fits the sector (see each agent's CLAUDE.md)
 - Use **Unsplash** for background images: `https://source.unsplash.com/1600x900/?[keyword]`
 - Every page must feel **polished and real**, not like a template
-- Save all output files to the `output/` folder inside the matching sector folder
+- Save all output files to the `Outputs/` folder inside the matching sector folder
 - After the HTML, always include a `<!-- PITCH NOTES -->` comment block with 2–3 bullet points explaining why this design converts better than a typical outdated site — written as if pitching directly to the business owner
 
 ## What NOT to do
