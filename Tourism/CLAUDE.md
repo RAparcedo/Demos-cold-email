@@ -70,30 +70,30 @@ Ask for these if not provided:
 
 ---
 
-## Image pools (Unsplash CDN)
+## Image pools (Pexels CDN)
 
-Full-width: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
-Gallery tiles: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
+Full-width: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+Gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
 
 ### Hero — ocean / activity (pick 1)
 | ID | Subject |
 |---|---|
-| `1507525428034-b723cf961d3e` | Aerial tropical blue ocean |
-| `1544551379-6a23c4be5b37` | Catamaran sailing at sea |
-| `1506905925-078b57a3d8cd` | Sailboat on deep blue water |
-| `1504701954957-3b1d7a40ae49` | Aerial adventure / open sky |
-| `1476514525535-07fb3b4ae5f1` | Tenerife coastal landscape |
-| `1559494007-6d14ca52fc03` | Dramatic ocean waves |
+| `4784477` | Aerial catamaran on turquoise water |
+| `4600762` | White and blue catamaran, aerial |
+| `9825649` | Ship sailing in turquoise Mediterranean |
+| `22121835` | Tandem paragliding over turquoise bay |
+| `2162689` | Paraglider over coastal ocean |
+| `19074425` | Paraglider over beach, sea below |
 
 ### Gallery tiles — mix of 4 (pick different IDs per teaser)
 | ID | Subject |
 |---|---|
-| `1559827260-dc66d52bef19` | Snorkeling / underwater |
-| `1513569771920-33898edde4b9` | Scuba diving |
-| `1503198579390-0a77e39cb14e` | Aerial adventure / paragliding |
-| `1524503033903-ad0f44dca5ac` | Outdoor adventure sport |
-| `1476514525535-07fb3b4ae5f1` | Coastal landscape |
-| `1505118380757-91f5f5632de0` | Surfer / wave action |
+| `15883439` | Yachts and sailing boats on clear sea |
+| `88517` | Sailboats on calm water, blue sky |
+| `19818173` | Person sailing small boat, bright blue water |
+| `132429` | Paraglider under cloudy sky |
+| `12218657` | Drone shot — bird over paraglider |
+| `19400415` | Paraglider over alpine mountain range |
 
 ---
 

@@ -39,9 +39,9 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Always **mobile-first** — design for 390px width first, then scale up
 - Use **Tailwind CSS** via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
 - Load fonts from **Google Fonts** — pick a font that fits the sector (see each agent's CLAUDE.md)
-- Use **Unsplash CDN** for all images — hardcode photo IDs from the curated pools listed in each sector's CLAUDE.md. No API key or runtime dependency; the CDN is fully public.
-  - Full-width / hero: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
-  - Cards / gallery tiles: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
+- Use **Pexels CDN** for all images — hardcode photo IDs from the curated pools listed in each sector's CLAUDE.md. No API key or runtime dependency; the CDN is fully public.
+  - Full-width / hero: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+  - Cards / gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
   - Pick the most thematically fitting ID from the pool for each slot. Rotate across different IDs per teaser for variety.
 - Every page must feel **polished and real**, not like a template
 - Save all output files to the `Outputs/` folder inside the matching sector folder

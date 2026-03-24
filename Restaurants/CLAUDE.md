@@ -69,37 +69,37 @@ Ask for these if not provided:
 
 ---
 
-## Image pools (Unsplash CDN)
+## Image pools (Pexels CDN)
 
-Full-width: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
-Cards: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
+Full-width: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
 
 ### Hero — restaurant interior / ambiance (pick 1)
 | ID | Subject |
 |---|---|
-| `1517248135467-4c7edcad34c4` | Warm restaurant interior, bokeh lights |
-| `1592417817098-8fd3d2eb9673` | Candlelit dining table |
-| `1559339352-11d035aa65de` | Elegant restaurant evening |
-| `1414235077428-338989a2e8c0` | Restaurant / upscale dining |
-| `1551218808-d5a8b2df83ee` | Intimate dining room |
+| `3534750` | Sophisticated fine dining, chandeliers, wine glasses |
+| `29309717` | Elegant interior, warm tones, geometric wall patterns |
+| `3465604` | Warm rustic-industrial café, hanging lights |
+| `19689233` | Bar in a luxury restaurant, velvet seating |
+| `34686219` | Cosy modern restaurant, ambient lighting |
 
 ### Dish cards — food close-ups (pick 3 different IDs)
 | ID | Subject |
 |---|---|
-| `1565299624946-b28f40a0ae38` | Pasta / gourmet plate |
-| `1414235077428-338989a2e8c0` | Colourful food bowl |
-| `1565958011703-44f9829ba187` | Grilled meat / seafood plate |
-| `1482049016688-2d3e1b311543` | Breakfast / brunch close-up |
-| `1540420773420-3366772f4999` | Seafood dish |
-| `1546069901-ba9599a7a5ae` | Fresh salad / greens |
-| `1546554137-f86b372c6dd5` | Elegant plated dessert |
+| `14885388` | Gourmet octopus dish, orange sauce |
+| `29617469` | Grilled fish and shrimp, herb garnish |
+| `19524049` | Seafood paella with prawns and mussels |
+| `11653557` | Grilled fish with roasted vegetables |
+| `1510714` | Fried fish with colourful vegetables |
+| `3649208` | Seafood pasta with shrimp and seashells |
+| `1998920` | Shrimp dish with chili, lemon, dipping sauce |
 
 ### Atmosphere — full-width (pick 1, different from hero)
 | ID | Subject |
 |---|---|
-| `1551218808-d5a8b2df83ee` | Cosy dining room |
-| `1559339352-11d035aa65de` | Evening restaurant interior |
-| `1517248135467-4c7edcad34c4` | Bokeh / warm light ambiance |
+| `29309717` | Elegant restaurant interior, warm tones |
+| `3534750` | Fine dining room, chandeliers |
+| `3465604` | Rustic café interior, hanging lights |
 
 ---
 

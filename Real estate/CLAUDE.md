@@ -68,30 +68,28 @@ Ask for these if not provided:
 
 ---
 
-## Image pools (Unsplash CDN)
+## Image pools (Pexels CDN)
 
-Full-width: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=1600&q=80`
-Cards: `https://images.unsplash.com/photo-{ID}?auto=format&fit=crop&w=800&q=80`
+Full-width: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
 
 ### Hero — luxury villa / property exterior (pick 1)
 | ID | Subject |
 |---|---|
-| `1613977257363-707ba9348227` | Luxury villa with infinity pool |
-| `1600596542815-ffad4c1539a9` | Modern villa exterior, sunny |
-| `1600585154340-be6161a56a0c` | Pool and villa, warm light |
-| `1512917774080-9991f1c4c750` | Upscale house exterior |
-| `1560448204-e02f11c3d0e2` | Terrace / balcony sea view |
+| `31817156` | Contemporary villa, glass & stone, infinity pool |
+| `29453302` | Modern luxury villa with pool, lush greenery |
+| `8134745` | Modern house exterior with pool and garden |
+| `26859048` | Luxurious villa with glowing pool at dusk |
+| `4066865` | Aerial view of villa with pool in forest |
 
 ### Property cards — interiors & exteriors (pick 3 different IDs)
 | ID | Subject |
 |---|---|
-| `1600607687939-ce8a6c25118c` | Luxury interior / living room |
-| `1613545325278-f18b3a2a5898` | Master bedroom, natural light |
-| `1600566753376-12c8621c13a8` | Modern kitchen, marble |
-| `1600047509807-ba8f99d2cdde` | Open-plan living room |
-| `1560185007-c5ca9d2c014d` | Apartment exterior / facade |
-| `1560448204-e02f11c3d0e2` | Balcony with sea view |
-| `1613977257363-707ba9348227` | Infinity pool close-up |
+| `8134745` | Modern house with pool, daytime |
+| `29453302` | Villa with pool, sunlit garden |
+| `26859048` | Villa with pool at evening |
+| `4066865` | Aerial villa exterior |
+| `31817156` | Infinity pool, contemporary villa |
 
 ---
 
