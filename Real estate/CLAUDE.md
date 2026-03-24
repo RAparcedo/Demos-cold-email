@@ -33,10 +33,18 @@ Ask for these if not provided:
 - `[SUBHEADLINE]` smaller, lifestyle or investment angle
 - CTA button: `[CTA_TEXT]` — premium accent color (gold, slate, or deep navy)
 
-### 2. Property preview (optional)
-- 2–3 property cards: image (Unsplash) + price tag + short label
-- Clean grid, spacious, easy to scan on mobile
-- Subtle shadow, no loud colors
+### 2. Property listings (required)
+- 3 property cards each with a real Unsplash property image (direct photo ID URL)
+- Price tag + property label (bedrooms, location) overlaid on or below the image
+- Clean grid, spacious, easy to scan on mobile; subtle shadow, no loud colors
+
+### 3. Trust stats row (recommended)
+- 3–4 figures: properties sold, years in market, client satisfaction %, avg. days to sale
+- Clean neutral background, large number + small label layout
+
+### 4. Client pull-quote (optional)
+- One testimonial: first name, short quote (1–2 sentences), star rating
+- Understated styling — italic text, no loud design treatment
 
 ---
 

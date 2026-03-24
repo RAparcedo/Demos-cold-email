@@ -33,10 +33,20 @@ Ask for these if not provided:
 - `[TAGLINE]` below — short, appetizing, evocative
 - CTA button: `[CTA_TEXT]` — warm food-appropriate color (gold, terracotta, or deep red)
 
-### 2. Menu preview (optional)
-- 2–3 dish cards: dish name + one-line description
-- Minimal and clean — let the food names do the work
-- Subtle card background, no loud borders
+### 2. Signature dishes (required)
+- 3 dish cards, each with a real Unsplash food image (use direct photo ID URLs)
+- Dish name + one-line description below the image
+- Warm card backgrounds, subtle shadow, rounded corners
+
+### 3. Atmosphere / pull-quote block (recommended)
+- Full-width section with a muted restaurant/ambiance background image
+- Overlaid italic pull-quote about the dining experience (invented but believable)
+- Author credit: "— [First name], Google Review" or similar
+
+### 4. Social proof bar (recommended)
+- Google rating (e.g. 4.8 ★ · 320 reviews), TripAdvisor mention, or a local award
+- Compact, single row, subtle dividers
+- Neutral background (slightly different shade from surrounding sections)
 
 ---
 

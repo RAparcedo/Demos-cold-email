@@ -35,7 +35,7 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 ## Global Rules (apply to ALL agents)
 
 - Output is always a **single self-contained HTML file** — no external dependencies except Tailwind CDN and Google Fonts
-- **No full websites** — one screen only: hero + one optional section max
+- **Not a full website** — hero + **2–3 focused sections max** (e.g. social proof, gallery, stats, dish cards, testimonials). Enough to impress, not enough to replace a real site.
 - Always **mobile-first** — design for 390px width first, then scale up
 - Use **Tailwind CSS** via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
 - Load fonts from **Google Fonts** — pick a font that fits the sector (see each agent's CLAUDE.md)
@@ -50,5 +50,5 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Do NOT use gray placeholder boxes — always use real images and real colors
 - Do NOT use generic fonts like Arial, Roboto, Inter, or Space Grotesk
 - Do NOT over-explain the code — just produce the file
-- Do NOT create more than one screen of content
+- Do NOT exceed 3 sections total (hero counts as one)
 - Do NOT ask unnecessary questions — if inputs are provided, generate immediately

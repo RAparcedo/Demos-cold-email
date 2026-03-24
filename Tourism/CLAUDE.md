@@ -31,9 +31,24 @@ Ask for these if not provided:
 - Short subheadline focused on outcome or ease: e.g. *"Beginner-friendly lessons. No experience needed."*
 - Primary CTA button: **"Book Now →"** — large, rounded, high-contrast
 
-### 2. Info strip (optional but recommended)
+### 2. Info strip (required)
 - 3 icon + label pairs: `[PRICE_FROM]` / `[DURATION]` / `[HIGHLIGHT]`
-- Light or frosted background, compact, single row on mobile
+- Frosted glass background, compact, single row on mobile
+
+### 3. Why choose us (recommended)
+- 3 cards: safety record, certified pilots/guides, unique perk (e.g. GoPro video included)
+- Dark or neutral section background to break up the page visually
+- Icons (SVG or Unicode symbol) + short label + one-line description per card
+
+### 4. Testimonials (recommended)
+- 2 short review quotes (first name + star rating + one or two sentences)
+- Clean, slightly lighter background
+- Star rating in accent color
+
+### 5. Photo gallery strip (optional)
+- 4 images in a horizontal row, fixed height (~180px), `overflow-x-auto` on mobile
+- Each image from Unsplash — activity/location themed
+- No captions needed
 
 ---
 
