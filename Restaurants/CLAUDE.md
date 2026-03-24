@@ -69,6 +69,21 @@ Ask for these if not provided:
 
 ---
 
+## Image keywords (LoremFlickr)
+
+| Slot | Keyword pattern | Example |
+|---|---|---|
+| Hero | `restaurant,[cuisine],interior` | `restaurant,seafood,candles` |
+| Dish 1 image | `[dish name],food,plate` | `octopus,grilled,food` |
+| Dish 2 image | `[dish name],food,gourmet` | `fish,saltcrust,restaurant` |
+| Dish 3 image | `[dish name],food,dish` | `prawns,garlic,seafood` |
+| Atmosphere | `restaurant,ambiance,dining` | `restaurant,ambiance,dining` |
+
+Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
+For dish card images use `https://loremflickr.com/600/400/keyword1,keyword2`
+
+---
+
 ## Output
 
 - Save as `restaurant/output/[restaurant-name]-teaser.html`

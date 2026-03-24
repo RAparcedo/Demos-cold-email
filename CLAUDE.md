@@ -39,7 +39,7 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Always **mobile-first** — design for 390px width first, then scale up
 - Use **Tailwind CSS** via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
 - Load fonts from **Google Fonts** — pick a font that fits the sector (see each agent's CLAUDE.md)
-- Use **Unsplash** for background images: direct photo URLs in the format `https://images.unsplash.com/photo-[ID]?w=1600&q=80` — the old `source.unsplash.com` random API is defunct. Pick a relevant photo ID from unsplash.com.
+- Use **LoremFlickr** for all images: `https://loremflickr.com/1600/900/[keyword1],[keyword2],[keyword3]` — pick 2–3 specific, comma-separated keywords relevant to the business (e.g. `catamaran,ocean,tenerife`). No API key needed, works in any browser, always on-theme. See each sector's CLAUDE.md for keyword guidance per image slot.
 - Every page must feel **polished and real**, not like a template
 - Save all output files to the `Outputs/` folder inside the matching sector folder
 - After the HTML, always include a `<!-- PITCH NOTES -->` comment block with 2–3 bullet points explaining why this design converts better than a typical outdated site — written as if pitching directly to the business owner

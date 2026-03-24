@@ -70,6 +70,21 @@ Ask for these if not provided:
 
 ---
 
+## Image keywords (LoremFlickr)
+
+| Slot | Keyword pattern | Example |
+|---|---|---|
+| Hero | `[activity],tenerife,ocean` | `paragliding,tenerife,sky` |
+| Gallery image 1 | `[activity],action` | `catamaran,sailing` |
+| Gallery image 2 | `[activity],sea` | `boat,ocean,blue` |
+| Gallery image 3 | `tenerife,coast,landscape` | `tenerife,coast,landscape` |
+| Gallery image 4 | `[activity],adventure` | `snorkeling,underwater,fish` |
+
+Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
+For gallery images use `https://loremflickr.com/600/400/keyword1,keyword2`
+
+---
+
 ## Output
 
 - Save as `tourism/output/[business-name]-teaser.html`

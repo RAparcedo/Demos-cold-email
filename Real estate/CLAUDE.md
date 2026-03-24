@@ -68,6 +68,20 @@ Ask for these if not provided:
 
 ---
 
+## Image keywords (LoremFlickr)
+
+| Slot | Keyword pattern | Example |
+|---|---|---|
+| Hero | `villa,pool,luxury,tenerife` | `villa,pool,luxury,tenerife` |
+| Property 1 | `villa,bedroom,interior` | `villa,bedroom,interior` |
+| Property 2 | `apartment,sea,view,balcony` | `apartment,sea,view,balcony` |
+| Property 3 | `penthouse,terrace,luxury` | `penthouse,terrace,luxury` |
+
+Use the format: `https://loremflickr.com/1600/900/keyword1,keyword2,keyword3`
+For property card images use `https://loremflickr.com/600/400/keyword1,keyword2`
+
+---
+
 ## Output
 
 - Save as `real-estate/output/[agency-name]-teaser.html`
