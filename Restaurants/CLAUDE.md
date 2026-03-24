@@ -87,19 +87,17 @@ Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compre
 | ID | Subject |
 |---|---|
 | `14885388` | Gourmet octopus dish, orange sauce |
-| `29617469` | Grilled fish and shrimp, herb garnish |
-| `19524049` | Seafood paella with prawns and mussels |
-| `11653557` | Grilled fish with roasted vegetables |
 | `1510714` | Fried fish with colourful vegetables |
-| `3649208` | Seafood pasta with shrimp and seashells |
 | `1998920` | Shrimp dish with chili, lemon, dipping sauce |
+| `3649208` | Seafood pasta with shrimp and seashells |
+| `11653557` | Grilled fish with roasted vegetables |
+| `1031780` | Grilled shrimps on plates |
 
 ### Atmosphere — full-width (pick 1, different from hero)
 | ID | Subject |
 |---|---|
-| `29309717` | Elegant restaurant interior, warm tones |
-| `3534750` | Fine dining room, chandeliers |
 | `3465604` | Rustic café interior, hanging lights |
+| `3534750` | Fine dining room, chandeliers |
 
 ---
 

@@ -43,6 +43,7 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
   - Full-width / hero: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
   - Cards / gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
   - Pick the most thematically fitting ID from the pool for each slot. Rotate across different IDs per teaser for variety.
+  - **Always add `onerror="this.style.visibility='hidden'"` to every `<img>` tag** — if a photo ever fails to load, the page hides it cleanly instead of showing a broken icon.
 - Every page must feel **polished and real**, not like a template
 - Save all output files to the `Outputs/` folder inside the matching sector folder
 - After the HTML, always include a `<!-- PITCH NOTES -->` comment block with 2–3 bullet points explaining why this design converts better than a typical outdated site — written as if pitching directly to the business owner
