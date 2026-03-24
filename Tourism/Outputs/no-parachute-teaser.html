@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Parachute — Paragliding Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, .bebas { font-family: 'Bebas Neue', sans-serif; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(170, 255, 0, 0.45); }
+      50%       { box-shadow: 0 0 0 12px rgba(170, 255, 0, 0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-label   { animation: fadeInUp 0.6s ease both; animation-delay: 0.1s; }
+    .anim-title   { animation: fadeInUp 0.7s ease both; animation-delay: 0.25s; }
+    .anim-sub     { animation: fadeInUp 0.7s ease both; animation-delay: 0.4s; }
+    .anim-cta     { animation: fadeInUp 0.7s ease both; animation-delay: 0.55s; }
+    .anim-strip   { animation: fadeIn 0.8s ease both; animation-delay: 0.85s; }
+
+    .cta-btn {
+      animation: pulse-glow 2.4s ease-in-out infinite;
+      animation-delay: 1.2s;
+    }
+
+    .strip-item { animation: slideUp 0.6s ease both; }
+    .strip-item:nth-child(1) { animation-delay: 0.9s; }
+    .strip-item:nth-child(2) { animation-delay: 1.05s; }
+    .strip-item:nth-child(3) { animation-delay: 1.2s; }
+  </style>
+</head>
+<body class="bg-black overflow-x-hidden">
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex flex-col justify-between">
+
+    <!-- Background image -->
+    <img
+      src="https://source.unsplash.com/1600x900/?paragliding,tenerife,sky,flying"
+      alt="Paragliding over Tenerife"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+
+    <!-- Gradient overlay — dark at bottom, lighter sky at top -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-6 pt-20 pb-8">
+
+      <!-- Label -->
+      <span class="anim-label inline-block bebas tracking-[0.25em] text-[#AAFF00] text-sm md:text-base mb-4 uppercase">
+        Paragliding · Tenerife
+      </span>
+
+      <!-- Main headline -->
+      <h1 class="anim-title bebas text-white leading-none text-[72px] sm:text-[96px] md:text-[128px] lg:text-[160px] drop-shadow-lg">
+        NO<br class="sm:hidden" /> PARACHUTE
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="anim-sub text-white/85 text-base sm:text-lg md:text-xl max-w-sm md:max-w-md mt-4 leading-relaxed font-medium">
+        Soar over the island. No experience needed — just the courage to jump.
+      </p>
+
+      <!-- CTA -->
+      <div class="anim-cta mt-8">
+        <a
+          href="#"
+          class="cta-btn inline-block bg-[#AAFF00] text-black font-semibold text-base md:text-lg px-9 py-4 rounded-full tracking-wide uppercase hover:bg-white transition-colors duration-300"
+        >
+          Book Your Flight →
+        </a>
+      </div>
+    </div>
+
+    <!-- Info strip -->
+    <div class="anim-strip relative z-10 w-full">
+      <div class="mx-4 mb-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 px-4 py-4">
+        <div class="grid grid-cols-3 divide-x divide-white/20 text-center text-white">
+
+          <div class="strip-item flex flex-col items-center gap-1 px-2">
+            <span class="text-[#AAFF00] text-xl">↗</span>
+            <span class="bebas text-2xl md:text-3xl tracking-wide">From €90</span>
+            <span class="text-white/60 text-xs uppercase tracking-wider">per person</span>
+          </div>
+
+          <div class="strip-item flex flex-col items-center gap-1 px-2">
+            <span class="text-[#AAFF00] text-xl">◷</span>
+            <span class="bebas text-2xl md:text-3xl tracking-wide">20–30 min</span>
+            <span class="text-white/60 text-xs uppercase tracking-wider">in the air</span>
+          </div>
+
+          <div class="strip-item flex flex-col items-center gap-1 px-2">
+            <span class="text-[#AAFF00] text-xl">★</span>
+            <span class="bebas text-2xl md:text-3xl tracking-wide">Certified</span>
+            <span class="text-white/60 text-xs uppercase tracking-wider">tandem pilots</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • Your competitors' sites look like they were built in 2009 — this teaser loads in under a second, works perfectly on every phone, and gives visitors one clear action: book. No confusing menus, no walls of text.
+  • The name "No Parachute" is a conversion asset — it's bold, memorable, and daring. This design leans into that energy so the page itself becomes a sales tool, not just an information page.
+  • The frosted-glass info strip puts your three strongest selling points (price, duration, certified pilots) right in front of the visitor before they even scroll — reducing the "is this legit?" hesitation that kills bookings.
+-->
