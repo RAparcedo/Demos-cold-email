@@ -31,9 +31,24 @@ Ask for these if not provided:
 - Short subheadline focused on outcome or ease: e.g. *"Beginner-friendly lessons. No experience needed."*
 - Primary CTA button: **"Book Now →"** — large, rounded, high-contrast
 
-### 2. Info strip (optional but recommended)
+### 2. Info strip (required)
 - 3 icon + label pairs: `[PRICE_FROM]` / `[DURATION]` / `[HIGHLIGHT]`
-- Light or frosted background, compact, single row on mobile
+- Frosted glass background, compact, single row on mobile
+
+### 3. Why choose us (recommended)
+- 3 cards: safety record, certified pilots/guides, unique perk (e.g. GoPro video included)
+- Dark or neutral section background to break up the page visually
+- Icons (SVG or Unicode symbol) + short label + one-line description per card
+
+### 4. Testimonials (recommended)
+- 2 short review quotes (first name + star rating + one or two sentences)
+- Clean, slightly lighter background
+- Star rating in accent color
+
+### 5. Photo gallery strip (optional)
+- 4 images in a horizontal row, fixed height (~180px), `overflow-x-auto` on mobile
+- Each image from Unsplash — activity/location themed
+- No captions needed
 
 ---
 
@@ -55,8 +70,50 @@ Ask for these if not provided:
 
 ---
 
+## Image pools (Pexels CDN)
+
+Full-width: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+Gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
+
+### Hero — ocean / activity (pick 1)
+| ID | Subject |
+|---|---|
+| `4784477` | Aerial catamaran on turquoise water |
+| `4600762` | White and blue catamaran, aerial |
+| `9825649` | Ship sailing in turquoise Mediterranean |
+| `22121835` | Tandem paragliding over turquoise bay |
+| `2162689` | Paraglider over coastal ocean |
+| `19074425` | Paraglider over beach, sea below |
+
+### Gallery tiles — mix of 4 (pick different IDs per teaser)
+| ID | Subject |
+|---|---|
+| `15883439` | Yachts and sailing boats on clear sea |
+| `88517` | Sailboats on calm water, blue sky |
+| `19818173` | Person sailing small boat, bright blue water |
+| `132429` | Paraglider under cloudy sky |
+| `12218657` | Drone shot — bird over paraglider |
+| `19400415` | Paraglider over alpine mountain range |
+
+---
+
+## Bilingual language toggle
+
+Follow the global toggle pattern in the root `CLAUDE.md` exactly. Below are the Tourism–specific vocabulary pairs to use:
+
+| Element | ES | EN |
+|---|---|---|
+| Hero headline | `Surfea las Mejores Olas` *(adapt per activity)* | `Surf Tenerife's Best Waves` |
+| Info strip: price | `Desde` | `From` |
+| Info strip: duration | `Duración` | `Duration` |
+| Info strip: rating | `Valoración` | `Rating` |
+| Feature card titles | Spanish title | English title (same structure, class `en`) |
+| Primary CTA | `Reservar Ahora` | `Book Now` |
+| Secondary CTA | `Ver Disponibilidad` | `Check Availability` |
+| Testimonial: keep the original quote language; use `.es` / `.en` only on the intro label, e.g. `Lo que dicen nuestros clientes` / `What our clients say` |
+
 ## Output
 
-- Save as `tourism/output/[business-name]-teaser.html`
+- Save as `Tourism/Outputs/[business-name]-teaser.html`
 - Single self-contained file
 - End with a `<!-- PITCH NOTES -->` block (2–3 bullets, owner-facing pitch language)

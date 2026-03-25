@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Marea — Seafood Restaurant Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Lato', sans-serif; background: #0d1614; }
+    .playfair { font-family: 'Playfair Display', serif; }
+
+    @keyframes fadeIn    { from { opacity:0 } to { opacity:1 } }
+    @keyframes fadeInUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes slideUp   { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
+
+    .a-label   { animation: fadeIn    .7s ease both .15s; }
+    .a-title   { animation: fadeInUp  .8s ease both .3s;  }
+    .a-tagline { animation: fadeInUp  .8s ease both .5s;  }
+    .a-cta     { animation: fadeInUp  .7s ease both .7s;  }
+    .a-proof   { animation: fadeIn    .7s ease both .9s;  }
+
+    .dish-card { animation: slideUp .6s ease both; }
+    .dish-card:nth-child(1) { animation-delay: .1s; }
+    .dish-card:nth-child(2) { animation-delay: .22s; }
+    .dish-card:nth-child(3) { animation-delay: .34s; }
+
+    .dish-card:hover .dish-img { transform: scale(1.06); }
+    .dish-img { transition: transform .5s ease; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="relative min-h-screen flex flex-col justify-between">
+    <img
+      src="https://images.pexels.com/photos/3534750/pexels-photo-3534750.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="La Marea seafood restaurant"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/80"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-10">
+      <span class="a-label inline-block text-[#7ecfc0] text-xs md:text-sm uppercase tracking-[.3em] font-light border border-[#7ecfc0]/40 px-5 py-1.5 rounded-full mb-6">
+        Fresh Seafood &amp; Canarian Cuisine
+      </span>
+      <h1 class="a-title playfair font-bold text-white text-5xl sm:text-7xl md:text-9xl leading-none drop-shadow-2xl">
+        La Marea
+      </h1>
+      <p class="a-tagline playfair italic text-white/70 text-lg sm:text-xl md:text-2xl mt-5 max-w-md leading-relaxed">
+        Where the Atlantic meets the table.
+      </p>
+      <div class="a-cta mt-9">
+        <a href="#" class="inline-block bg-[#D4A647] hover:bg-[#e0b55a] text-black font-bold text-sm md:text-base px-9 py-4 rounded-full tracking-widest uppercase transition-colors duration-300">
+          Reserve a Table
+        </a>
+      </div>
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="a-proof relative z-10 mx-4 mb-6 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 px-5 py-4">
+      <div class="grid grid-cols-3 divide-x divide-white/15 text-center text-white text-sm">
+        <div class="px-3">
+          <p class="text-[#D4A647] font-bold text-base">4.9 ★</p>
+          <p class="text-white/50 text-xs mt-0.5">Google · 480 reviews</p>
+        </div>
+        <div class="px-3">
+          <p class="text-[#D4A647] font-bold text-base">#1</p>
+          <p class="text-white/50 text-xs mt-0.5">Seafood in Los Cristianos</p>
+        </div>
+        <div class="px-3">
+          <p class="text-[#D4A647] font-bold text-base">Since 2011</p>
+          <p class="text-white/50 text-xs mt-0.5">Family-owned &amp; run</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SIGNATURE DISHES ──────────────────────────────────── -->
+  <section class="bg-[#0d1614] py-16 px-4">
+    <p class="text-center text-[#7ecfc0] text-xs uppercase tracking-[.3em] font-light mb-2">What we're known for</p>
+    <h2 class="playfair text-white text-3xl md:text-4xl font-bold text-center mb-10">Signature Dishes</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+
+      <div class="dish-card bg-[#111e1b] rounded-2xl overflow-hidden border border-white/8">
+        <div class="h-44 overflow-hidden">
+          <img src="https://images.pexels.com/photos/14885388/pexels-photo-14885388.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pulpo a la Brasa" class="dish-img w-full h-full object-cover" onerror="this.style.visibility='hidden'" />
+        </div>
+        <div class="p-5">
+          <p class="playfair text-white font-semibold text-base">Pulpo a la Brasa</p>
+          <p class="text-white/45 text-xs mt-1.5 leading-relaxed">Grilled octopus, charred edges, house mojo verde</p>
+        </div>
+      </div>
+
+      <div class="dish-card bg-[#111e1b] rounded-2xl overflow-hidden border border-white/8">
+        <div class="h-44 overflow-hidden">
+          <img src="https://images.pexels.com/photos/1510714/pexels-photo-1510714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vieja al Sal" class="dish-img w-full h-full object-cover" onerror="this.style.visibility='hidden'" />
+        </div>
+        <div class="p-5">
+          <p class="playfair text-white font-semibold text-base">Vieja al Sal</p>
+          <p class="text-white/45 text-xs mt-1.5 leading-relaxed">Salt-crusted parrotfish, wild herbs, lemon</p>
+        </div>
+      </div>
+
+      <div class="dish-card bg-[#111e1b] rounded-2xl overflow-hidden border border-white/8">
+        <div class="h-44 overflow-hidden">
+          <img src="https://images.pexels.com/photos/1998920/pexels-photo-1998920.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gambas al Ajillo" class="dish-img w-full h-full object-cover" onerror="this.style.visibility='hidden'" />
+        </div>
+        <div class="p-5">
+          <p class="playfair text-white font-semibold text-base">Gambas al Ajillo</p>
+          <p class="text-white/45 text-xs mt-1.5 leading-relaxed">Sizzling Atlantic prawns, garlic, guindilla, pan tostado</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── ATMOSPHERE PULL-QUOTE ──────────────────────────────── -->
+  <section class="relative py-24 px-4 overflow-hidden">
+    <img
+      src="https://images.pexels.com/photos/3465604/pexels-photo-3465604.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Restaurant ambiance"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="absolute inset-0 bg-black/72"></div>
+    <div class="relative z-10 max-w-xl mx-auto text-center">
+      <p class="text-[#D4A647] text-2xl mb-5 leading-none">"</p>
+      <p class="playfair italic text-white text-xl md:text-2xl leading-relaxed">
+        The kind of place where the fish was swimming this morning and the wine arrives before you realise you needed it.
+      </p>
+      <p class="text-white/40 text-xs uppercase tracking-widest mt-6">— Carlos M. · Google Review</p>
+    </div>
+  </section>
+
+  <!-- ─── BOTTOM CTA ─────────────────────────────────────────── -->
+  <section class="bg-[#0d1614] py-16 px-4 text-center border-t border-white/5">
+    <h2 class="playfair text-white font-bold text-3xl md:text-4xl mb-3">Join us tonight.</h2>
+    <p class="text-white/45 text-sm mb-8 max-w-xs mx-auto">Open daily from 13:00. Walk-ins welcome, reservations recommended.</p>
+    <a href="#" class="inline-block bg-[#D4A647] hover:bg-[#e0b55a] text-black font-bold text-sm px-9 py-4 rounded-full tracking-widest uppercase transition-colors duration-300">
+      Reserve a Table →
+    </a>
+  </section>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • Most restaurant websites in Tenerife are slow, cluttered, and impossible to use on a phone — this page loads instantly, works beautifully on mobile, and gets visitors to the "Reserve a Table" button in under five seconds.
+  • Showing dish photos alongside the names isn't just pretty: it's proven to increase reservation intent because people eat with their eyes first. Your current site makes people imagine the food; this makes them crave it.
+  • The 4.9★ Google rating and "#1 Seafood in Los Cristianos" sit right on the hero — before visitors scroll a pixel. Social proof at that position removes doubt faster than any amount of copy ever could.
+-->

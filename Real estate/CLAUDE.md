@@ -33,10 +33,18 @@ Ask for these if not provided:
 - `[SUBHEADLINE]` smaller, lifestyle or investment angle
 - CTA button: `[CTA_TEXT]` — premium accent color (gold, slate, or deep navy)
 
-### 2. Property preview (optional)
-- 2–3 property cards: image (Unsplash) + price tag + short label
-- Clean grid, spacious, easy to scan on mobile
-- Subtle shadow, no loud colors
+### 2. Property listings (required)
+- 3 property cards each with a real Unsplash property image (direct photo ID URL)
+- Price tag + property label (bedrooms, location) overlaid on or below the image
+- Clean grid, spacious, easy to scan on mobile; subtle shadow, no loud colors
+
+### 3. Trust stats row (recommended)
+- 3–4 figures: properties sold, years in market, client satisfaction %, avg. days to sale
+- Clean neutral background, large number + small label layout
+
+### 4. Client pull-quote (optional)
+- One testimonial: first name, short quote (1–2 sentences), star rating
+- Understated styling — italic text, no loud design treatment
 
 ---
 
@@ -60,8 +68,50 @@ Ask for these if not provided:
 
 ---
 
+## Image pools (Pexels CDN)
+
+Full-width: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=1600`
+Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compress&cs=tinysrgb&w=800`
+
+### Hero — luxury villa / property exterior (pick 1)
+| ID | Subject |
+|---|---|
+| `31817156` | Contemporary villa, glass & stone, infinity pool |
+| `29453302` | Modern luxury villa with pool, lush greenery |
+| `8134745` | Modern house exterior with pool and garden |
+| `26859048` | Luxurious villa with glowing pool at dusk |
+| `4066865` | Aerial view of villa with pool in forest |
+
+### Property cards — interiors & exteriors (pick 3 different IDs)
+| ID | Subject |
+|---|---|
+| `8134745` | Modern house with pool, daytime |
+| `29453302` | Villa with pool, sunlit garden |
+| `26859048` | Villa with pool at evening |
+| `4066865` | Aerial villa exterior |
+| `31817156` | Infinity pool, contemporary villa |
+
+---
+
+## Bilingual language toggle
+
+Follow the global toggle pattern in the root `CLAUDE.md` exactly. Below are the Real Estate–specific vocabulary pairs to use:
+
+| Element | ES | EN |
+|---|---|---|
+| Hero badge | `Propiedades de Lujo · Tenerife` | `Luxury Property · Tenerife` |
+| Section heading | `Propiedades Destacadas` | `Featured Properties` |
+| Listing label | `Listados Actuales` | `Current Listings` |
+| Stat: years | `años en el mercado` | `years in market` |
+| Stat: sales | `propiedades vendidas` | `properties sold` |
+| Stat: satisfaction | `satisfacción del cliente` | `client satisfaction` |
+| Card badge | `En Venta` / `Vista al Mar` / `Recién Llegado` | `For Sale` / `Sea View` / `New In` |
+| Primary CTA | `Ver Propiedades` | `Browse Properties` |
+| Secondary CTA | `Solicitar Visita` | `Request a Viewing` |
+| Body copy | Spanish description first | English description second (same `<p class="en">`) |
+
 ## Output
 
-- Save as `real-estate/output/[agency-name]-teaser.html`
+- Save as `Real estate/Outputs/[agency-name]-teaser.html`
 - Single self-contained file
 - End with a `<!-- PITCH NOTES -->` block (2–3 bullets, owner-facing pitch language)
