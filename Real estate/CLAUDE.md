@@ -93,14 +93,22 @@ Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compre
 
 ---
 
-## Bilingual notes (Real Estate)
+## Bilingual language toggle
 
-- Hero badge: e.g. `Propiedades de Lujo · Tenerife` / `Luxury Property · Tenerife`
-- Section heading: `Propiedades Destacadas` / `Featured Properties`
-- Stats labels: e.g. `años en Tenerife` / `years in Tenerife`
-- Property card badges: Spanish (`En Venta`, `Vista al Mar`, `Recién Llegado`), no English needed on badges
-- CTA button: `Ver Propiedades` with `(Browse Properties)` below, or `Solicitar Visita` / `(Request a Viewing)`
-- Pull-quote: Spanish text, English translation in lighter italic below
+Follow the global toggle pattern in the root `CLAUDE.md` exactly. Below are the Real Estate–specific vocabulary pairs to use:
+
+| Element | ES | EN |
+|---|---|---|
+| Hero badge | `Propiedades de Lujo · Tenerife` | `Luxury Property · Tenerife` |
+| Section heading | `Propiedades Destacadas` | `Featured Properties` |
+| Listing label | `Listados Actuales` | `Current Listings` |
+| Stat: years | `años en el mercado` | `years in market` |
+| Stat: sales | `propiedades vendidas` | `properties sold` |
+| Stat: satisfaction | `satisfacción del cliente` | `client satisfaction` |
+| Card badge | `En Venta` / `Vista al Mar` / `Recién Llegado` | `For Sale` / `Sea View` / `New In` |
+| Primary CTA | `Ver Propiedades` | `Browse Properties` |
+| Secondary CTA | `Solicitar Visita` | `Request a Viewing` |
+| Body copy | Spanish description first | English description second (same `<p class="en">`) |
 
 ## Output
 

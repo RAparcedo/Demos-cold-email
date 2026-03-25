@@ -48,31 +48,73 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Save all output files to the `Outputs/` folder inside the matching sector folder
 - After the HTML, always include a `<!-- PITCH NOTES -->` comment block with 2–3 bullet points explaining why this design converts better than a typical outdated site — written as if pitching directly to the business owner
 
-## Bilingual content (Spanish + English)
+## Bilingual language toggle (Spanish + English)
 
-All teasers must be **bilingual — Spanish primary, English secondary**. This reflects the Tenerife context: local business owners read Spanish, but their customers are largely international tourists.
+Every teaser must include a **fixed ES | EN toggle button** that persists through scrolling. Spanish is the default language. Switching replaces all copy instantly with no page reload.
 
-Rules:
-- **Spanish is the primary language** — all main headings, labels, CTAs, and body copy are in Spanish
-- **English translation follows** immediately below each key element — smaller font size, lighter opacity (e.g. `text-white/50` or `text-gray-400`), and italic
-- **CTA buttons:** Spanish text on top, English in parentheses or a second smaller line below — still one button, not two
-- **Stat labels:** Spanish above, English below in light italic
-- **Property / dish / activity names:** keep as-is (proper nouns don't need translation)
-- Do NOT translate brand names, locations, or prices
+### Toggle button (copy this exactly into every teaser)
 
-Example pattern for a heading:
+Place immediately before the closing `</body>` tag:
+
 ```html
-<h2>Propiedades Destacadas</h2>
-<p class="italic text-white/50 text-sm">Featured Properties</p>
+<!-- ─── LANGUAGE TOGGLE ──────────────────────────────────────── -->
+<div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+  <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+  <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+</div>
+<script>
+  function setLang(l) {
+    document.body.classList.toggle('lang-en', l === 'en');
+    document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+    document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+    document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+    document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+  }
+</script>
 ```
 
-Example pattern for a CTA button:
+### CSS rules (add inside the `<style>` block of every teaser)
+
+```css
+/* Language toggle — default ES, switch to EN */
+.en          { display: none !important; }
+span.es      { display: inline; }
+body.lang-en .es { display: none !important; }
+body.lang-en .en { display: block; }
+body.lang-en span.en { display: inline; }
+```
+
+### How to mark up bilingual content
+
+Wrap every user-visible string in either `<span class="es">` / `<span class="en">` (inline) or add the class directly to block elements. The active language shows, the other hides.
+
+**Headings and subheadings:**
+```html
+<h2 class="es">Propiedades Destacadas</h2>
+<h2 class="en">Featured Properties</h2>
+```
+
+**Labels / badges / stat captions:**
+```html
+<span class="es">años en el mercado</span>
+<span class="en">years in market</span>
+```
+
+**Body copy paragraphs:**
+```html
+<p class="es">Piscina climatizada, jardín tropical y vistas al mar.</p>
+<p class="en">Heated pool, tropical garden and sea views.</p>
+```
+
+**CTA buttons (single `<a>`, two inner spans):**
 ```html
 <a href="#">
-  Ver Propiedades
-  <span class="block text-xs font-light opacity-70">(Browse Properties)</span>
+  <span class="es">Ver Propiedades</span>
+  <span class="en">Browse Properties</span>
 </a>
 ```
+
+**What NOT to translate:** brand names, property/dish/business names, locations, prices, numbers, star ratings. These are universal — no `.es` / `.en` wrapping needed.
 
 ## What NOT to do
 
@@ -82,4 +124,5 @@ Example pattern for a CTA button:
 - Do NOT over-explain the code — just produce the file
 - Do NOT exceed 3 sections total (hero counts as one)
 - Do NOT ask unnecessary questions — if inputs are provided, generate immediately
-- Do NOT produce monolingual teasers — every teaser must be bilingual (ES + EN)
+- Do NOT omit the language toggle — every teaser must be bilingual (ES + EN)
+- Do NOT show both languages at once — use the toggle pattern above, never stack them

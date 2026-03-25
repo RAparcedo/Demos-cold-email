@@ -97,13 +97,20 @@ Gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?aut
 
 ---
 
-## Bilingual notes (Tourism)
+## Bilingual language toggle
 
-- Hero headline: Spanish main (e.g. `Surfea las Mejores Olas`), English below in lighter italic (`Surf Tenerife's Best Waves`)
-- Info strip labels: Spanish above (`Desde`/`Duración`/`Valoración`), English below (`From`/`Duration`/`Rating`)
-- Feature card titles: Spanish + English subtitle
-- CTA button: `Reservar Ahora` with `(Book Now)` below
-- Testimonial quotes: keep in original language (usually English for tourists), add a Spanish intro line
+Follow the global toggle pattern in the root `CLAUDE.md` exactly. Below are the Tourism–specific vocabulary pairs to use:
+
+| Element | ES | EN |
+|---|---|---|
+| Hero headline | `Surfea las Mejores Olas` *(adapt per activity)* | `Surf Tenerife's Best Waves` |
+| Info strip: price | `Desde` | `From` |
+| Info strip: duration | `Duración` | `Duration` |
+| Info strip: rating | `Valoración` | `Rating` |
+| Feature card titles | Spanish title | English title (same structure, class `en`) |
+| Primary CTA | `Reservar Ahora` | `Book Now` |
+| Secondary CTA | `Ver Disponibilidad` | `Check Availability` |
+| Testimonial: keep the original quote language; use `.es` / `.en` only on the intro label, e.g. `Lo que dicen nuestros clientes` / `What our clients say` |
 
 ## Output
 

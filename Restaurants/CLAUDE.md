@@ -101,13 +101,21 @@ Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compre
 
 ---
 
-## Bilingual notes (Restaurants)
+## Bilingual language toggle
 
-- Hero cuisine label: Spanish (`Cocina Canaria & Mariscos`), English below (`Canarian & Seafood Cuisine`)
-- Dish names: Spanish name bold, English translation in lighter italic below
-- CTA button: `Ver Carta` with `(View Menu)` below, or `Reservar Mesa` / `(Reserve a Table)`
-- Social proof bar: numbers stay as-is; labels bilingual (e.g. `Reseñas` / `reviews`)
-- Pull-quote: Spanish translation of the quote shown in smaller italic below the original
+Follow the global toggle pattern in the root `CLAUDE.md` exactly. Below are the Restaurant–specific vocabulary pairs to use:
+
+| Element | ES | EN |
+|---|---|---|
+| Hero cuisine label | `Cocina Canaria & Mariscos` *(adapt per cuisine)* | `Canarian & Seafood Cuisine` |
+| Section heading | `Nuestros Platos` | `Our Dishes` |
+| Dish description | Spanish one-liner | English one-liner (class `en`) |
+| Social proof label | `Reseñas` | `Reviews` |
+| Social proof strip label | `en Google` | `on Google` |
+| Primary CTA | `Ver Carta` | `View Menu` |
+| Secondary CTA | `Reservar Mesa` | `Reserve a Table` |
+| Pull-quote intro | `Lo que dicen nuestros clientes` | `What our guests say` |
+| Pull-quote body | Translate the quote into both languages; use `.es` / `.en` on the `<p>` tags |
 
 ## Output
 
