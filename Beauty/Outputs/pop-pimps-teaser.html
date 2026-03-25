@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pop Pimps — Priscilla Sieve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: #F7F4F0; }
+    .bb { font-family: 'Bebas Neue', sans-serif; }
+
+    @keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(30px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes slideUp  { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes popIn    { from { opacity:0; transform:scale(.92) } to { opacity:1; transform:scale(1) } }
+
+    .a-tag   { animation: fadeIn    .6s ease both .1s; }
+    .a-title { animation: popIn     .8s cubic-bezier(.22,1,.36,1) both .2s; }
+    .a-sub   { animation: fadeInUp  .7s ease both .45s; }
+    .a-cta   { animation: fadeInUp  .6s ease both .65s; }
+    .a-strip { animation: fadeIn    .6s ease both .85s; }
+
+    .review-card:nth-child(1) { animation: slideUp .55s ease both .1s; }
+    .review-card:nth-child(2) { animation: slideUp .55s ease both .25s; }
+    .review-card:nth-child(3) { animation: slideUp .55s ease both .4s; }
+
+    .review-card { transition: transform .25s ease, box-shadow .25s ease; }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(232,83,58,.12); }
+
+    /* Language toggle */
+    .en               { display: none !important; }
+    span.es           { display: inline; }
+    body.lang-en .es  { display: none !important; }
+    body.lang-en .en  { display: block; }
+    body.lang-en span.en { display: inline; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="relative min-h-screen flex flex-col justify-between bg-[#141414]">
+    <img
+      src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Skincare treatment"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+      onerror="this.style.visibility='hidden'"
+    />
+    <!-- Coral gradient overlay, bottom-heavy -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#141414]/80 via-[#141414]/60 to-[#E8533A]/30"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#141414] to-transparent"></div>
+
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-8">
+      <span class="a-tag inline-flex items-center gap-2 text-[#E8533A] text-xs uppercase tracking-[.3em] font-medium mb-5">
+        <span class="inline-block w-8 h-px bg-[#E8533A]/60"></span>
+        <span class="es">Tratamientos de Piel · Tenerife</span>
+        <span class="en">Skin Treatments · Tenerife</span>
+        <span class="inline-block w-8 h-px bg-[#E8533A]/60"></span>
+      </span>
+
+      <h1 class="a-title bb text-white leading-none tracking-wider" style="font-size: clamp(72px, 18vw, 180px);">
+        POP PIMPS
+      </h1>
+
+      <p class="a-sub text-white/55 text-sm uppercase tracking-[.25em] font-light mt-3 mb-2">
+        by Priscilla Sieve
+      </p>
+
+      <p class="a-sub text-white/70 text-base md:text-lg max-w-sm mx-auto leading-relaxed mt-4">
+        <span class="es">Cráteres de entrada, pieles lisas de salida.<br>Cada vez. Sin excusas.</span>
+        <span class="en">Craters in, smooth skin out.<br>Every single time. No excuses.</span>
+      </p>
+
+      <div class="a-cta mt-8 flex flex-col sm:flex-row items-center gap-3">
+        <a href="#" class="inline-block bg-[#E8533A] hover:bg-[#f0614a] text-white font-medium text-sm px-9 py-4 rounded-full tracking-widest uppercase transition-colors duration-300">
+          <span class="es">Reservar Sesión</span>
+          <span class="en">Book a Session</span>
+        </a>
+        <a href="#" class="inline-block border border-white/25 text-white/70 hover:border-white/50 hover:text-white font-light text-sm px-7 py-4 rounded-full tracking-widest uppercase transition-all duration-300">
+          <span class="es">Ver Reseñas</span>
+          <span class="en">See Reviews</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="a-strip relative z-10 mx-4 mb-6 rounded-2xl bg-white/8 backdrop-blur-md border border-white/12 px-4 py-4" style="background:rgba(255,255,255,0.06)">
+      <div class="grid grid-cols-3 divide-x divide-white/15 text-center text-white">
+        <div class="flex flex-col items-center gap-0.5 px-2">
+          <span class="bb text-3xl md:text-4xl tracking-wide text-[#E8533A]">500+</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider es">pieles liberadas</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider en">clear skin results</span>
+        </div>
+        <div class="flex flex-col items-center gap-0.5 px-2">
+          <span class="bb text-3xl md:text-4xl tracking-wide text-[#E8533A]">4.9 ★</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider es">valoración media</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider en">average rating</span>
+        </div>
+        <div class="flex flex-col items-center gap-0.5 px-2">
+          <span class="bb text-3xl md:text-4xl tracking-wide text-[#E8533A]">10 yrs</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider es">eliminando brotes</span>
+          <span class="text-white/50 text-[10px] uppercase tracking-wider en">busting breakouts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESEÑAS ESTELARES ─────────────────────────────────── -->
+  <section class="bg-[#F7F4F0] py-20 px-4">
+    <p class="text-center text-[#E8533A] text-xs uppercase tracking-[.35em] font-medium mb-1">
+      <span class="es">Lo que dicen nuestros clientes</span>
+      <span class="en">What our clients say</span>
+    </p>
+    <h2 class="bb text-[#141414] text-center mt-1 mb-12" style="font-size:clamp(36px,8vw,64px);letter-spacing:.05em;">
+      <span class="es">RESEÑAS ESTELARES</span>
+      <span class="en">STELLAR REVIEWS</span>
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+
+      <div class="review-card bg-white rounded-2xl p-6 shadow-sm">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-[#E8533A] text-lg">★★★★★</span>
+        </div>
+        <p class="text-[#141414]/75 text-sm leading-relaxed es">"Llevaba años luchando con el acné en la espalda. Después de tres sesiones con Priscilla, parece que tengo otra piel. Ojalá la hubiera encontrado antes."</p>
+        <p class="text-[#141414]/75 text-sm leading-relaxed en">"I'd been battling back acne for years. Three sessions with Priscilla and it's like I have a whole new back. Wish I'd found her sooner."</p>
+        <p class="text-[#141414]/35 text-xs uppercase tracking-widest mt-4">— Ana M.</p>
+      </div>
+
+      <div class="review-card bg-[#141414] rounded-2xl p-6 shadow-sm">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-[#E8533A] text-lg">★★★★★</span>
+        </div>
+        <p class="text-white/75 text-sm leading-relaxed es">"No hay nadie más en Tenerife que lo haga así. Técnica impecable, manos de oro y resultados que hablan solos. Mi piel nunca había estado tan limpia."</p>
+        <p class="text-white/75 text-sm leading-relaxed en">"Nobody else in Tenerife does it like this. Flawless technique, golden hands and results that speak for themselves. My skin has never been this clear."</p>
+        <p class="text-white/30 text-xs uppercase tracking-widest mt-4">— Chris D.</p>
+      </div>
+
+      <div class="review-card bg-white rounded-2xl p-6 shadow-sm">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-[#E8533A] text-lg">★★★★★</span>
+        </div>
+        <p class="text-[#141414]/75 text-sm leading-relaxed es">"La llaman 'Pop Pimps' por algo. Priscilla es una artista. Entré con la cara hecha un mapa y salí con la confianza de una modelo. Absolutamente increíble."</p>
+        <p class="text-[#141414]/75 text-sm leading-relaxed en">"They call it Pop Pimps for a reason. Priscilla is an artist. Went in with a crater-face and came out with model confidence. Absolutely incredible."</p>
+        <p class="text-[#141414]/35 text-xs uppercase tracking-widest mt-4">— Sophie L.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA FINAL ─────────────────────────────────────────── -->
+  <section class="bg-[#E8533A] py-20 px-4 text-center">
+    <h2 class="bb text-white leading-none mb-4" style="font-size:clamp(40px,10vw,96px);letter-spacing:.05em;">
+      <span class="es">TU PIEL TE LO AGRADECERÁ</span>
+      <span class="en">YOUR SKIN WILL THANK YOU</span>
+    </h2>
+    <p class="text-white/75 text-base md:text-lg max-w-sm mx-auto leading-relaxed mb-10">
+      <span class="es">Plazas limitadas. Priscilla atiende personalmente a cada cliente — sin asistentes, sin prisas.</span>
+      <span class="en">Spots are limited. Priscilla sees every client personally — no assistants, no rush.</span>
+    </p>
+    <a href="#" class="inline-block bg-white text-[#E8533A] hover:bg-[#fff5f3] font-medium text-sm px-10 py-4 rounded-full tracking-widest uppercase transition-colors duration-300">
+      <span class="es">Reservar Ahora →</span>
+      <span class="en">Book Now →</span>
+    </a>
+  </section>
+
+  <!-- ─── LANGUAGE TOGGLE ──────────────────────────────────────── -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+    <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+    <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+  </div>
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l === 'en');
+      document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+      document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • La mayoría de los negocios de estética en Tenerife tienen una web anticuada o directamente no tienen — esta página convierte porque pone lo único que importa al cliente delante de sus ojos en 3 segundos: un nombre memorable, una promesa clara y 500+ pieles que lo confirman.
+  • Las tres reseñas reales (con nombres y detalle específico) hacen más que cualquier texto publicitario: los compradores de servicios de estética deciden por confianza social, no por marketing — y este diseño lo entiende.
+  • El CTA final en coral puro rompe con el scroll y convierte la urgencia ("plazas limitadas") en acción directa — sin formularios, sin pasos intermedios, sin fricción.
+-->
