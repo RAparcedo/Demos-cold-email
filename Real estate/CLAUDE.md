@@ -93,8 +93,17 @@ Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compre
 
 ---
 
+## Bilingual notes (Real Estate)
+
+- Hero badge: e.g. `Propiedades de Lujo · Tenerife` / `Luxury Property · Tenerife`
+- Section heading: `Propiedades Destacadas` / `Featured Properties`
+- Stats labels: e.g. `años en Tenerife` / `years in Tenerife`
+- Property card badges: Spanish (`En Venta`, `Vista al Mar`, `Recién Llegado`), no English needed on badges
+- CTA button: `Ver Propiedades` with `(Browse Properties)` below, or `Solicitar Visita` / `(Request a Viewing)`
+- Pull-quote: Spanish text, English translation in lighter italic below
+
 ## Output
 
-- Save as `real-estate/output/[agency-name]-teaser.html`
+- Save as `Real estate/Outputs/[agency-name]-teaser.html`
 - Single self-contained file
 - End with a `<!-- PITCH NOTES -->` block (2–3 bullets, owner-facing pitch language)

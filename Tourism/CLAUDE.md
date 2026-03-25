@@ -97,8 +97,16 @@ Gallery tiles: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?aut
 
 ---
 
+## Bilingual notes (Tourism)
+
+- Hero headline: Spanish main (e.g. `Surfea las Mejores Olas`), English below in lighter italic (`Surf Tenerife's Best Waves`)
+- Info strip labels: Spanish above (`Desde`/`Duración`/`Valoración`), English below (`From`/`Duration`/`Rating`)
+- Feature card titles: Spanish + English subtitle
+- CTA button: `Reservar Ahora` with `(Book Now)` below
+- Testimonial quotes: keep in original language (usually English for tourists), add a Spanish intro line
+
 ## Output
 
-- Save as `tourism/output/[business-name]-teaser.html`
+- Save as `Tourism/Outputs/[business-name]-teaser.html`
 - Single self-contained file
 - End with a `<!-- PITCH NOTES -->` block (2–3 bullets, owner-facing pitch language)

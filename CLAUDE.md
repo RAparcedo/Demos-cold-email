@@ -48,6 +48,32 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Save all output files to the `Outputs/` folder inside the matching sector folder
 - After the HTML, always include a `<!-- PITCH NOTES -->` comment block with 2–3 bullet points explaining why this design converts better than a typical outdated site — written as if pitching directly to the business owner
 
+## Bilingual content (Spanish + English)
+
+All teasers must be **bilingual — Spanish primary, English secondary**. This reflects the Tenerife context: local business owners read Spanish, but their customers are largely international tourists.
+
+Rules:
+- **Spanish is the primary language** — all main headings, labels, CTAs, and body copy are in Spanish
+- **English translation follows** immediately below each key element — smaller font size, lighter opacity (e.g. `text-white/50` or `text-gray-400`), and italic
+- **CTA buttons:** Spanish text on top, English in parentheses or a second smaller line below — still one button, not two
+- **Stat labels:** Spanish above, English below in light italic
+- **Property / dish / activity names:** keep as-is (proper nouns don't need translation)
+- Do NOT translate brand names, locations, or prices
+
+Example pattern for a heading:
+```html
+<h2>Propiedades Destacadas</h2>
+<p class="italic text-white/50 text-sm">Featured Properties</p>
+```
+
+Example pattern for a CTA button:
+```html
+<a href="#">
+  Ver Propiedades
+  <span class="block text-xs font-light opacity-70">(Browse Properties)</span>
+</a>
+```
+
 ## What NOT to do
 
 - Do NOT add navigation menus, footers, about pages, or contact forms
@@ -56,3 +82,4 @@ When asked to generate a teaser, identify the sector and use the `CLAUDE.md` in 
 - Do NOT over-explain the code — just produce the file
 - Do NOT exceed 3 sections total (hero counts as one)
 - Do NOT ask unnecessary questions — if inputs are provided, generate immediately
+- Do NOT produce monolingual teasers — every teaser must be bilingual (ES + EN)

@@ -101,8 +101,16 @@ Cards: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg?auto=compre
 
 ---
 
+## Bilingual notes (Restaurants)
+
+- Hero cuisine label: Spanish (`Cocina Canaria & Mariscos`), English below (`Canarian & Seafood Cuisine`)
+- Dish names: Spanish name bold, English translation in lighter italic below
+- CTA button: `Ver Carta` with `(View Menu)` below, or `Reservar Mesa` / `(Reserve a Table)`
+- Social proof bar: numbers stay as-is; labels bilingual (e.g. `Reseñas` / `reviews`)
+- Pull-quote: Spanish translation of the quote shown in smaller italic below the original
+
 ## Output
 
-- Save as `restaurant/output/[restaurant-name]-teaser.html`
+- Save as `Restaurants/Outputs/[restaurant-name]-teaser.html`
 - Single self-contained file
 - End with a `<!-- PITCH NOTES -->` block (2–3 bullets, owner-facing pitch language)
