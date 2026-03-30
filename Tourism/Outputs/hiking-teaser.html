@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenerife Trails — Senderismo & Naturaleza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #F4F0E8;
+      color: #1B3A2D;
+      overflow-x: hidden;
+    }
+
+    /* ── Language toggle ─────────────────────────────────── */
+    .en          { display: none !important; }
+    span.es      { display: inline; }
+    body.lang-en .es { display: none !important; }
+    body.lang-en .en { display: block; }
+    body.lang-en span.en { display: inline; }
+
+    /* ── Animations ──────────────────────────────────────── */
+    @keyframes fadeIn   { from{opacity:0}to{opacity:1} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)} }
+    @keyframes slideUp  { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+
+    .anim-fade      { animation: fadeIn   .9s ease both; }
+    .anim-up-1      { animation: fadeInUp .9s .15s ease both; }
+    .anim-up-2      { animation: fadeInUp .9s .35s ease both; }
+    .anim-up-3      { animation: fadeInUp .9s .55s ease both; }
+    .anim-up-4      { animation: fadeInUp .9s .75s ease both; }
+
+    .card-slide-1   { animation: slideUp .7s .1s ease both; }
+    .card-slide-2   { animation: slideUp .7s .25s ease both; }
+    .card-slide-3   { animation: slideUp .7s .4s ease both; }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 25, 17, 0.25) 0%,
+        rgba(10, 25, 17, 0.55) 55%,
+        rgba(10, 25, 17, 0.82) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 1.5rem 0;
+    }
+
+    /* ── Badge ───────────────────────────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(196, 138, 46, 0.22);
+      border: 1px solid rgba(196, 138, 46, 0.5);
+      color: #C48A2E;
+      font-family: 'Lato', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .35rem .85rem;
+      border-radius: 999px;
+    }
+    .badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: #C48A2E;
+      border-radius: 50%;
+    }
+
+    /* ── Stats strip ─────────────────────────────────────── */
+    .stats-strip {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: rgba(27, 58, 45, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(196, 138, 46, 0.3);
+      margin-top: 2.5rem;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem .5rem;
+      gap: .15rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #C48A2E;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .65rem;
+      font-weight: 400;
+      color: rgba(244, 240, 232, 0.65);
+      letter-spacing: .04em;
+      text-align: center;
+    }
+
+    /* ── Cards section ───────────────────────────────────── */
+    .cards-section {
+      background: #F4F0E8;
+      padding: 3rem 1.25rem;
+    }
+    .section-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #C48A2E;
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #1B3A2D;
+      margin-bottom: 2rem;
+    }
+
+    .route-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(27, 58, 45, 0.1);
+      margin-bottom: 1.25rem;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .route-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(27, 58, 45, 0.16);
+    }
+    .route-card:last-child { margin-bottom: 0; }
+
+    .card-img-wrap {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .route-card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
+    .card-difficulty {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      background: rgba(27, 58, 45, 0.82);
+      backdrop-filter: blur(8px);
+      color: #F4F0E8;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .28rem .65rem;
+      border-radius: 999px;
+    }
+    .card-body {
+      padding: 1.2rem 1.3rem 1.4rem;
+    }
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #1B3A2D;
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .card-desc {
+      font-size: .875rem;
+      line-height: 1.65;
+      color: #3d5a4e;
+    }
+
+    /* ── CTA close ───────────────────────────────────────── */
+    .cta-section {
+      background: #1B3A2D;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(196, 138, 46, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: -40px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(196, 138, 46, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: #F4F0E8;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-sub {
+      font-size: .9rem;
+      line-height: 1.65;
+      color: rgba(244, 240, 232, 0.7);
+      max-width: 340px;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #C48A2E;
+      color: #1B3A2D;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: background .22s ease, transform .22s ease;
+    }
+    .cta-btn:hover {
+      background: #d99e3e;
+      transform: translateY(-2px);
+    }
+
+    /* ── Desktop enhancements (≥768px) ───────────────────── */
+    @media (min-width: 768px) {
+      .hero-content { padding: 3rem 3rem 0; }
+      .hero h1 { font-size: 3.6rem; }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .route-card { margin-bottom: 0; }
+      .cards-section { padding: 4rem 2.5rem; }
+      .section-title { font-size: 2rem; }
+      .cta-headline { font-size: 2.6rem; }
+    }
+    @media (min-width: 1024px) {
+      .cards-section { padding: 5rem 4rem; }
+      .hero-content { padding: 4rem 5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <img
+      class="hero-img anim-fade"
+      src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Volcanic landscape of Tenerife"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="badge anim-up-1">
+        <span class="es">Senderismo &amp; Naturaleza · Tenerife</span>
+        <span class="en">Hiking &amp; Nature · Tenerife</span>
+      </div>
+
+      <h1
+        class="anim-up-2"
+        style="font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;line-height:1.1;color:#F4F0E8;margin-top:1rem;margin-bottom:.9rem;letter-spacing:-.01em;"
+      >
+        <span class="es">Tenerife Trails</span>
+        <span class="en">Tenerife Trails</span>
+      </h1>
+
+      <p
+        class="anim-up-3"
+        style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:700;color:#F4F0E8;line-height:1.35;margin-bottom:.65rem;"
+      >
+        <span class="es">La isla tiene más que playa. Descúbrela a pie.</span>
+        <span class="en">There's more to the island than beaches. Discover it on foot.</span>
+      </p>
+
+      <p
+        class="anim-up-4"
+        style="font-size:.92rem;color:rgba(244,240,232,0.8);line-height:1.65;max-width:420px;margin-bottom:1.6rem;"
+      >
+        <span class="es">Rutas guiadas al Teide, bosques de laurisilva y barrancos vírgenes. Todos los niveles.</span>
+        <span class="en">Guided routes to Teide, laurel forests and untouched ravines. All fitness levels.</span>
+      </p>
+
+      <a
+        href="#rutas"
+        class="anim-up-4"
+        style="display:inline-block;background:#C48A2E;color:#1B3A2D;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:999px;text-decoration:none;margin-bottom:2.5rem;transition:background .2s,transform .2s;"
+        onmouseover="this.style.background='#d99e3e';this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.background='#C48A2E';this.style.transform='translateY(0)'"
+      >
+        <span class="es">Ver Rutas</span>
+        <span class="en">See Routes</span>
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip anim-up-4">
+      <div class="stat-item">
+        <span class="stat-value">Desde €40</span>
+        <span class="stat-label">
+          <span class="es">por persona</span>
+          <span class="en">per person</span>
+        </span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">4.9 ★</span>
+        <span class="stat-label">
+          <span class="es">valoración media</span>
+          <span class="en">avg. rating</span>
+        </span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">18 rutas</span>
+        <span class="stat-label">
+          <span class="es">disponibles</span>
+          <span class="en">available</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROUTE CARDS ──────────────────────────────────────── -->
+  <section class="cards-section" id="rutas">
+    <p class="section-eyebrow">
+      <span class="es">Nuestras rutas</span>
+      <span class="en">Our routes</span>
+    </p>
+    <h2 class="section-title">
+      <span class="es">Elige tu aventura</span>
+      <span class="en">Choose your adventure</span>
+    </h2>
+
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <div class="route-card card-slide-1">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/1578750/pexels-photo-1578750.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Teide Caldera"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="card-difficulty">
+            <span class="es">Moderado</span>
+            <span class="en">Moderate</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-icon">🌋</span>
+          <h3 class="card-title">
+            <span class="es">Cañadas del Teide</span>
+            <span class="en">Teide Caldera</span>
+          </h3>
+          <p class="card-desc">
+            <span class="es">La ruta más impresionante de Canarias. Paisaje marciano, amanecer sobre las nubes y silencio absoluto.</span>
+            <span class="en">The most breathtaking route in the Canaries. Martian landscape, sunrise above the clouds, absolute silence.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="route-card card-slide-2">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/554609/pexels-photo-554609.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Laurel Forest"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="card-difficulty">
+            <span class="es">Fácil</span>
+            <span class="en">Easy</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-icon">🌿</span>
+          <h3 class="card-title">
+            <span class="es">Bosque de Laurisilva</span>
+            <span class="en">Laurel Forest</span>
+          </h3>
+          <p class="card-desc">
+            <span class="es">Un bosque primigenio declarado Patrimonio de la Humanidad. Verde, misterioso y lleno de vida.</span>
+            <span class="en">A primeval forest and UNESCO World Heritage site. Green, mysterious and teeming with life.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="route-card card-slide-3">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Southern Ravines"
+            onerror="this.style.visibility='hidden'"
+          />
+          <span class="card-difficulty">
+            <span class="es">Avanzado</span>
+            <span class="en">Advanced</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-icon">🦎</span>
+          <h3 class="card-title">
+            <span class="es">Barrancos del Sur</span>
+            <span class="en">Southern Ravines</span>
+          </h3>
+          <p class="card-desc">
+            <span class="es">Paisajes de roca volcánica, cactus gigantes y vistas al mar. La Tenerife que nadie te cuenta.</span>
+            <span class="en">Volcanic rock landscapes, giant cacti and sea views. The Tenerife nobody tells you about.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA CLOSE ────────────────────────────────────────── -->
+  <section class="cta-section">
+    <h2 class="cta-headline">
+      <span class="es">LA NATURALEZA<br>TE LLAMA</span>
+      <span class="en">NATURE IS<br>CALLING</span>
+    </h2>
+    <p class="cta-sub">
+      <span class="es">Grupos pequeños de máximo 10 personas. Guías bilingües. Transporte incluido.</span>
+      <span class="en">Small groups of max 10 people. Bilingual guides. Transport included.</span>
+    </p>
+    <a href="#" class="cta-btn">
+      <span class="es">Reservar Ruta →</span>
+      <span class="en">Book a Route →</span>
+    </a>
+  </section>
+
+  <!-- ─── LANGUAGE TOGGLE ──────────────────────────────────── -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+    <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+    <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+  </div>
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l === 'en');
+      document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+      document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+
+• Su presencia online actual no refleja lo que ofrecen: esta página transmite en segundos la autenticidad y calidad de sus rutas — paisaje real, valoraciones visibles y precios claros. El prospecto decide antes de hacer scroll.
+
+• El toggle ES/EN capta a los dos públicos clave — turistas extranjeros angloparlantes y clientes locales — sin necesidad de dos sitios web. Una sola página, doble alcance.
+
+• Las tarjetas de ruta con dificultad, descripción y foto eliminan la fricción de decisión: el visitante ya sabe qué esperar, llega más convencido y pregunta menos antes de reservar.
+
+-->

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teide Stargazing — Observación Astronómica en Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Language toggle ─────────────────────────────────────── */
+    .en          { display: none !important; }
+    span.es      { display: inline; }
+    body.lang-en .es { display: none !important; }
+    body.lang-en .en { display: block; }
+    body.lang-en span.en { display: inline; }
+
+    /* ─── Base ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: #060B18;
+      color: #F0EEF8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ─── Animations ──────────────────────────────────────────── */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .anim-fade        { animation: fadeIn    0.9s ease both; }
+    .anim-up-1        { animation: fadeInUp  0.9s ease 0.15s both; }
+    .anim-up-2        { animation: fadeInUp  0.9s ease 0.35s both; }
+    .anim-up-3        { animation: fadeInUp  0.9s ease 0.55s both; }
+    .anim-up-4        { animation: fadeInUp  0.9s ease 0.75s both; }
+
+    .card-1           { animation: slideUp   0.8s ease 0.1s  both; }
+    .card-2           { animation: slideUp   0.8s ease 0.25s both; }
+    .card-3           { animation: slideUp   0.8s ease 0.4s  both; }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* layered gradient: darker at bottom for stats strip, dark at top for badge */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom,
+          rgba(6,11,24,0.55)  0%,
+          rgba(6,11,24,0.20) 40%,
+          rgba(6,11,24,0.55) 70%,
+          rgba(6,11,24,0.88) 100%
+        );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 1.25rem 9rem;
+      max-width: 680px;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(201,168,76,0.55);
+      border-radius: 999px;
+      padding: 0.35rem 1.1rem;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #F0EEF8;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: #C9A84C;
+    }
+
+    .hero p {
+      font-size: clamp(0.88rem, 2.5vw, 1.05rem);
+      font-weight: 300;
+      color: rgba(240,238,248,0.78);
+      line-height: 1.65;
+      max-width: 460px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: #C9A84C;
+      color: #060B18;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2.2rem;
+      border-radius: 999px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.38);
+    }
+
+    /* ─── Stats strip ─────────────────────────────────────────── */
+    .stats-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      background: rgba(6,11,24,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(201,168,76,0.18);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stat-item {
+      flex: 1;
+      max-width: 160px;
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border-right: 1px solid rgba(201,168,76,0.14);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #C9A84C;
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(240,238,248,0.55);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    /* ─── Section: Feature cards ──────────────────────────────── */
+    .section-cards {
+      background: #060B18;
+      padding: 4rem 1.25rem;
+      position: relative;
+    }
+
+    .section-cards::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+    }
+
+    .section-label {
+      text-align: center;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 300;
+      color: #F0EEF8;
+      margin-bottom: 2.8rem;
+      line-height: 1.15;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card {
+      background: rgba(240,238,248,0.04);
+      border: 1px solid rgba(201,168,76,0.14);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 1.4rem 1.25rem 1.6rem;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F0EEF8;
+      margin-bottom: 0.55rem;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: rgba(240,238,248,0.65);
+      line-height: 1.6;
+    }
+
+    /* ─── CTA close ───────────────────────────────────────────── */
+    .cta-section {
+      background: #060B18;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 4.5rem 1.25rem;
+    }
+
+    /* starfield dots */
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 18%, rgba(201,168,76,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 72%, rgba(240,238,248,0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 58% 30%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 55%, rgba(240,238,248,0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 90% 12%, rgba(201,168,76,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5% 88%, rgba(240,238,248,0.4) 0%, transparent 100%),
+        radial-gradient(2px 2px at 48% 92%, rgba(201,168,76,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 22% 45%, rgba(240,238,248,0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 68% 80%, rgba(201,168,76,0.6) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .cta-divider {
+      width: 40px;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 1.8rem;
+    }
+
+    .cta-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 6vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #F0EEF8;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-sub {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(240,238,248,0.62);
+      line-height: 1.65;
+      margin-bottom: 2.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #C9A84C, #e0c068);
+      color: #060B18;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 999px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(201,168,76,0.45);
+    }
+
+    .cta-shimmer {
+      background: linear-gradient(90deg, #C9A84C, #e8d080, #C9A84C);
+      background-size: 200% auto;
+      animation: shimmer 2.8s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <img
+      class="hero-bg"
+      src="https://images.pexels.com/photos/1169742/pexels-photo-1169742.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Starry night sky over Teide"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="badge anim-fade">
+        <span class="es">Observación Astronómica · Tenerife</span>
+        <span class="en">Stargazing Tours · Tenerife</span>
+      </div>
+
+      <h1 class="anim-up-1">
+        <span class="es">El cielo más<br /><em>estrellado</em> de Europa.<br />Sobre el Teide.</span>
+        <span class="en">Europe's most<br /><em>starry sky.</em><br />Above the Teide.</span>
+      </h1>
+
+      <p class="anim-up-2">
+        <span class="es">Noches astronómicas guiadas a 2.000 metros de altitud. Telescopios profesionales incluidos.</span>
+        <span class="en">Guided astronomy nights at 2,000 metres altitude. Professional telescopes included.</span>
+      </p>
+
+      <a href="#" class="hero-cta anim-up-3">
+        <span class="es">Reservar Noche</span>
+        <span class="en">Book a Night</span>
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip anim-up-4">
+      <div class="stat-item">
+        <span class="stat-value">Desde €65</span>
+        <span class="stat-label es">por persona</span>
+        <span class="stat-label en">per person</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">4.9 ★</span>
+        <span class="stat-label es">experiencia única</span>
+        <span class="stat-label en">unique experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">3h</span>
+        <span class="stat-label es">de observación</span>
+        <span class="stat-label en">of observation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE CARDS ─────────────────────────────────────────── -->
+  <section class="section-cards">
+    <p class="section-label">
+      <span class="es">Lo que te espera</span>
+      <span class="en">What awaits you</span>
+    </p>
+    <h2 class="section-title">
+      <span class="es">Una noche que no olvidarás</span>
+      <span class="en">A night you won't forget</span>
+    </h2>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="card card-1">
+        <img
+          class="card-img"
+          src="https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Professional telescope"
+          onerror="this.style.visibility='hidden'"
+        />
+        <div class="card-body">
+          <span class="card-icon">✨</span>
+          <h3 class="card-title es">Telescopios Profesionales</h3>
+          <h3 class="card-title en">Professional Telescopes</h3>
+          <p class="card-desc es">Accede a telescopios de alta gama y observa galaxias, nebulosas y planetas con tus propios ojos.</p>
+          <p class="card-desc en">Access high-end telescopes and see galaxies, nebulae and planets with your own eyes.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card card-2">
+        <img
+          class="card-img"
+          src="https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Astronomer guide"
+          onerror="this.style.visibility='hidden'"
+        />
+        <div class="card-body">
+          <span class="card-icon">🔭</span>
+          <h3 class="card-title es">Astrónomo Guía</h3>
+          <h3 class="card-title en">Astronomer Guide</h3>
+          <p class="card-desc es">Un astrónomo profesional explica el universo en directo. Una clase magistral bajo el cielo de Tenerife.</p>
+          <p class="card-desc en">A professional astronomer explains the universe live. A masterclass under Tenerife's sky.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card card-3">
+        <img
+          class="card-img"
+          src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=800"
+          alt="Night sky galaxy"
+          onerror="this.style.visibility='hidden'"
+        />
+        <div class="card-body">
+          <span class="card-icon">🚐</span>
+          <h3 class="card-title es">Transporte Incluido</h3>
+          <h3 class="card-title en">Transport Included</h3>
+          <p class="card-desc es">Recogida en tu hotel y vuelta incluidas. Solo tienes que abrigarte y mirar hacia arriba.</p>
+          <p class="card-desc en">Hotel pickup and return included. Just wrap up warm and look up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA CLOSE ─────────────────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="cta-divider"></div>
+    <h2 class="cta-headline">
+      <span class="es cta-shimmer">EL UNIVERSO TE ESPERA ESTA NOCHE</span>
+      <span class="en cta-shimmer">THE UNIVERSE AWAITS TONIGHT</span>
+    </h2>
+    <p class="cta-sub">
+      <span class="es">Grupos de máximo 12 personas. Disponible toda la semana.</span>
+      <span class="en">Groups of max 12 people. Available every night of the week.</span>
+    </p>
+    <a href="#" class="cta-btn">
+      <span class="es">Reservar Mi Noche →</span>
+      <span class="en">Book My Night →</span>
+    </a>
+  </section>
+
+  <!-- ─── LANGUAGE TOGGLE ──────────────────────────────────────── -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+    <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+    <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+  </div>
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l === 'en');
+      document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+      document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+• La mayoría de las empresas de astroturismo en Tenerife tienen webs anticuadas con fotos pixeladas y formularios rotos — esta página pone el cielo estrellado en primer plano desde el primer segundo, generando una conexión emocional inmediata que empuja a reservar.
+• La franja de stats (€65 · 4.9★ · 3h) convierte objeciones en ventajas en menos de 3 segundos de lectura: precio claro, valoración social y duración concreta, todo sin necesidad de hacer scroll.
+• El límite de "máximo 12 personas" en la sección final crea escasez real y urgencia percibida — un factor probado de conversión que los sitios genéricos nunca aprovechan.
+-->
