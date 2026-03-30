@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vulcano Riders — Excursiones en Quad · Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Fonts ─────────────────────────────────────────────── */
+    body { font-family: 'DM Sans', sans-serif; background: #1C1209; color: #F2EDE4; }
+    h1, h2, h3, .bebas { font-family: 'Bebas Neue', sans-serif; }
+
+    /* ─── Language toggle ────────────────────────────────────── */
+    .en          { display: none !important; }
+    span.es      { display: inline; }
+    body.lang-en .es { display: none !important; }
+    body.lang-en .en { display: block; }
+    body.lang-en span.en { display: inline; }
+
+    /* ─── Animations ─────────────────────────────────────────── */
+    @keyframes fadeIn   { from { opacity: 0 }                           to { opacity: 1 } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px) } to { opacity: 1; transform: translateY(0) } }
+    @keyframes slideUp  { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+
+    .anim-fade-in-up-1 { animation: fadeInUp .7s ease both; animation-delay: 0.1s; }
+    .anim-fade-in-up-2 { animation: fadeInUp .7s ease both; animation-delay: 0.3s; }
+    .anim-fade-in-up-3 { animation: fadeInUp .7s ease both; animation-delay: 0.5s; }
+    .anim-fade-in-up-4 { animation: fadeInUp .7s ease both; animation-delay: 0.7s; }
+
+    .anim-slide-up-1 { animation: slideUp .6s ease both; animation-delay: 0.1s; }
+    .anim-slide-up-2 { animation: slideUp .6s ease both; animation-delay: 0.25s; }
+    .anim-slide-up-3 { animation: slideUp .6s ease both; animation-delay: 0.4s; }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(28,18,9,0.18) 0%,
+        rgba(28,18,9,0.30) 40%,
+        rgba(28,18,9,0.80) 75%,
+        rgba(28,18,9,0.98) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ─── Badge ──────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      background: #C4601A;
+      color: #F2EDE4;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .85rem;
+      border-radius: 999px;
+    }
+
+    /* ─── Stats strip ─────────────────────────────────────────── */
+    .stats-strip {
+      background: rgba(244,237,228,0.07);
+      border-top: 1px solid rgba(196,96,26,0.35);
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(242,237,228,0.18);
+      height: 2.4rem;
+      align-self: center;
+    }
+
+    /* ─── Cards ──────────────────────────────────────────────── */
+    .card {
+      background: rgba(242,237,228,0.05);
+      border: 1px solid rgba(242,237,228,0.10);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.55);
+    }
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
+    .card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(28,18,9,0.75) 100%);
+    }
+    .card-icon {
+      position: absolute;
+      bottom: .85rem;
+      left: 1rem;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    /* ─── CTA section ─────────────────────────────────────────── */
+    .cta-section {
+      background: #1C1209;
+      border-top: 1px solid rgba(196,96,26,0.3);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #C4601A;
+      color: #F2EDE4;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: .04em;
+      padding: 1rem 2.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .22s ease, transform .22s ease;
+    }
+    .cta-btn:hover {
+      background: #d9701f;
+      transform: translateY(-2px);
+    }
+    .terracotta { color: #C4601A; }
+    .sand { color: #F2EDE4; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <img
+      class="hero-img"
+      src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Quad riding through volcanic landscape"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content px-5 pb-0">
+      <!-- Brand + badge -->
+      <div class="anim-fade-in-up-1 mb-4">
+        <span class="badge">
+          <span class="es">Excursiones en Quad · Tenerife</span>
+          <span class="en">Quad Excursions · Tenerife</span>
+        </span>
+      </div>
+
+      <!-- Business name -->
+      <h1 class="anim-fade-in-up-2 bebas text-[4.2rem] leading-none tracking-wide mb-3" style="color:#F2EDE4;">
+        Vulcano<br /><span class="terracotta">Riders</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="anim-fade-in-up-3 bebas text-[1.65rem] leading-snug tracking-wide mb-3" style="color:#F2EDE4;">
+        <span class="es">Conquista el volcán. Sobre cuatro ruedas.</span>
+        <span class="en">Conquer the volcano. On four wheels.</span>
+      </p>
+
+      <!-- Sub -->
+      <p class="anim-fade-in-up-4 text-[0.95rem] leading-relaxed mb-7 max-w-xs" style="color:rgba(242,237,228,0.75);">
+        <span class="es">Rutas todoterreno por el Teide y los paisajes más salvajes de la isla.</span>
+        <span class="en">Off-road routes through Teide and the island's most untamed landscapes.</span>
+      </p>
+
+      <!-- CTA hero button -->
+      <div class="anim-fade-in-up-4 mb-0">
+        <a href="#cta" class="cta-btn">
+          <span class="es">Reservar Excursión</span>
+          <span class="en">Book an Excursion</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip mt-8 px-5 py-5 flex items-center justify-around">
+      <!-- Stat 1 -->
+      <div class="text-center">
+        <p class="bebas text-[1.6rem] leading-none" style="color:#C4601A;">Desde €65</p>
+        <p class="text-[0.72rem] font-medium tracking-wide mt-0.5" style="color:rgba(242,237,228,0.6);">
+          <span class="es">por persona</span>
+          <span class="en">per person</span>
+        </p>
+      </div>
+      <div class="stat-divider"></div>
+      <!-- Stat 2 -->
+      <div class="text-center">
+        <p class="bebas text-[1.6rem] leading-none" style="color:#C4601A;">3h</p>
+        <p class="text-[0.72rem] font-medium tracking-wide mt-0.5" style="color:rgba(242,237,228,0.6);">
+          <span class="es">duración media</span>
+          <span class="en">avg. duration</span>
+        </p>
+      </div>
+      <div class="stat-divider"></div>
+      <!-- Stat 3 -->
+      <div class="text-center">
+        <p class="bebas text-[1.6rem] leading-none" style="color:#C4601A;">4.8 ★</p>
+        <p class="text-[0.72rem] font-medium tracking-wide mt-0.5" style="color:rgba(242,237,228,0.6);">
+          <span class="es">valoración media</span>
+          <span class="en">avg. rating</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FEATURE CARDS
+  ═══════════════════════════════════════════════════════════════ -->
+  <section style="background:#1C1209;" class="px-5 pt-12 pb-10">
+    <p class="bebas text-[2.4rem] tracking-wide leading-none mb-7" style="color:#F2EDE4;">
+      <span class="es">Lo que nos hace</span>
+      <span class="en">What makes us</span>
+      <br /><span class="terracotta">
+        <span class="es">diferentes</span>
+        <span class="en">different</span>
+      </span>
+    </p>
+
+    <div class="flex flex-col gap-5">
+
+      <!-- Card 1 — Teide Route -->
+      <div class="card anim-slide-up-1">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/1544961/pexels-photo-1544961.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Teide volcanic landscape"
+            onerror="this.style.visibility='hidden'"
+          />
+          <div class="card-img-overlay"></div>
+          <span class="card-icon">🏔️</span>
+        </div>
+        <div class="p-5">
+          <h3 class="bebas text-[1.55rem] leading-none mb-2" style="color:#F2EDE4;">
+            <span class="es">Ruta por el Teide</span>
+            <span class="en">Teide Route</span>
+          </h3>
+          <p class="text-[0.875rem] leading-relaxed" style="color:rgba(242,237,228,0.65);">
+            <span class="es">Paisajes lunares, coladas de lava y vistas imposibles a 2.000 m de altitud.</span>
+            <span class="en">Lunar landscapes, lava flows and impossible views at 2,000m altitude.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 — Expert Guides -->
+      <div class="card anim-slide-up-2">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpg?auto=compress&cs=tinysrgb&w=800"
+            alt="Expert guide leading excursion"
+            onerror="this.style.visibility='hidden'"
+          />
+          <div class="card-img-overlay"></div>
+          <span class="card-icon">🧭</span>
+        </div>
+        <div class="p-5">
+          <h3 class="bebas text-[1.55rem] leading-none mb-2" style="color:#F2EDE4;">
+            <span class="es">Guías Expertos Locales</span>
+            <span class="en">Expert Local Guides</span>
+          </h3>
+          <p class="text-[0.875rem] leading-relaxed" style="color:rgba(242,237,228,0.65);">
+            <span class="es">Cada ruta está dirigida por guías nativos que conocen cada sendero.</span>
+            <span class="en">Every route is led by native guides who know every trail.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 — Photo Stops -->
+      <div class="card anim-slide-up-3">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/2087418/pexels-photo-2087418.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Stunning viewpoint photo stop"
+            onerror="this.style.visibility='hidden'"
+          />
+          <div class="card-img-overlay"></div>
+          <span class="card-icon">📸</span>
+        </div>
+        <div class="p-5">
+          <h3 class="bebas text-[1.55rem] leading-none mb-2" style="color:#F2EDE4;">
+            <span class="es">Paradas Fotográficas</span>
+            <span class="en">Photo Stops Included</span>
+          </h3>
+          <p class="text-[0.875rem] leading-relaxed" style="color:rgba(242,237,228,0.65);">
+            <span class="es">Paramos en los mejores miradores de la isla. Tus fotos serán épicas.</span>
+            <span class="en">We stop at the best viewpoints on the island. Your photos will be epic.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CTA CLOSE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="cta" class="cta-section px-5 py-16 text-center">
+    <!-- Decorative line -->
+    <div class="flex items-center gap-3 mb-8 justify-center">
+      <div style="height:1px;width:40px;background:#C4601A;"></div>
+      <span class="bebas tracking-widest text-[0.8rem]" style="color:#C4601A;">VULCANO RIDERS</span>
+      <div style="height:1px;width:40px;background:#C4601A;"></div>
+    </div>
+
+    <h2 class="bebas text-[3rem] leading-none tracking-wide mb-4" style="color:#F2EDE4;">
+      <span class="es">LA AVENTURA TE ESPERA</span>
+      <span class="en">ADVENTURE AWAITS</span>
+    </h2>
+
+    <p class="text-[0.925rem] leading-relaxed mb-8 mx-auto max-w-xs" style="color:rgba(242,237,228,0.65);">
+      <span class="es">Grupos pequeños, máximo 8 personas. Reserva tu plaza hoy.</span>
+      <span class="en">Small groups, max 8 people. Book your spot today.</span>
+    </p>
+
+    <a href="#" class="cta-btn text-[1.05rem]">
+      <span class="es">Reservar Ahora →</span>
+      <span class="en">Book Now →</span>
+    </a>
+
+    <!-- Trust note -->
+    <p class="mt-6 text-[0.78rem]" style="color:rgba(242,237,228,0.35);">
+      <span class="es">Confirmación inmediata · Cancelación flexible · Guía en español e inglés</span>
+      <span class="en">Instant confirmation · Flexible cancellation · Guide in Spanish & English</span>
+    </p>
+  </section>
+
+
+  <!-- ─── LANGUAGE TOGGLE ──────────────────────────────────────── -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+    <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+    <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+  </div>
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l === 'en');
+      document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+      document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • La mayoría de empresas de quads en Tenerife tienen webs anticuadas con fotos borrosas y sin precio visible — esta página muestra el precio desde el primer scroll y genera confianza inmediata con valoraciones y grupos pequeños.
+  • El diseño oscuro con terracota volcánica conecta directamente con la identidad del Teide y el off-road: los clientes potenciales sienten la aventura antes de leer una sola palabra, lo que dispara la intención de reserva.
+  • La sección de características con iconos y fotos reales separa Vulcano Riders de la competencia genérica: guías locales + paradas fotográficas son los dos argumentos de venta que más buscan los turistas en TripAdvisor, y aquí están en primer plano.
+-->

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OceanRide Surf School · Tenerife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #F7F5F0;
+      color: #0A2540;
+      overflow-x: hidden;
+    }
+
+    /* ── Bilingual toggle ── */
+    .en          { display: none !important; }
+    span.es      { display: inline; }
+    body.lang-en .es { display: none !important; }
+    body.lang-en .en { display: block; }
+    body.lang-en span.en { display: inline; }
+
+    /* ── Animations ── */
+    @keyframes fadeIn   { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp  { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse    { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+    .anim-badge   { animation: fadeIn   0.6s ease-out 0.1s both; }
+    .anim-h1      { animation: fadeInUp 0.8s ease-out 0.2s both; }
+    .anim-sub     { animation: fadeInUp 0.7s ease-out 0.4s both; }
+    .anim-cta     { animation: fadeInUp 0.7s ease-out 0.55s both, pulse 2s ease-in-out 1.5s infinite; }
+    .anim-card-1  { animation: slideUp  0.6s ease-out 0.1s both; }
+    .anim-card-2  { animation: slideUp  0.6s ease-out 0.25s both; }
+    .anim-card-3  { animation: slideUp  0.6s ease-out 0.4s both; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 37, 64, 0.15) 0%,
+        rgba(10, 37, 64, 0.35) 40%,
+        rgba(10, 37, 64, 0.82) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.25rem 0 1.25rem;
+    }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 107, 74, 0.96);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* ── Feature cards ── */
+    .feature-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(10, 37, 64, 0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(10, 37, 64, 0.16);
+    }
+    .card-img-wrap { aspect-ratio: 16/10; overflow: hidden; }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    .feature-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+    /* ── CTA section ── */
+    .cta-section {
+      background-color: #0A2540;
+    }
+
+    /* ── Buttons ── */
+    .btn-coral {
+      display: inline-block;
+      background: #FF6B4A;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.22s ease, transform 0.18s ease;
+    }
+    .btn-coral:hover { background: #e85535; transform: translateY(-2px); }
+
+    .btn-coral-outline {
+      display: inline-block;
+      border: 2px solid #FF6B4A;
+      color: #FF6B4A;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.22s ease, color 0.22s ease, transform 0.18s ease;
+    }
+    .btn-coral-outline:hover {
+      background: #FF6B4A;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ── Typography helpers ── */
+    .font-bebas { font-family: 'Bebas Neue', cursive; }
+
+    /* ── Wave divider ── */
+    .wave-divider svg { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────── HERO ── -->
+  <section class="hero">
+    <img
+      class="hero-bg"
+      src="https://images.pexels.com/photos/1309484/pexels-photo-1309484.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      alt="Surfer riding a wave in Tenerife"
+      onerror="this.style.visibility='hidden'"
+    />
+    <div class="hero-overlay"></div>
+
+    <!-- Copy block -->
+    <div class="hero-content pb-0">
+      <!-- Badge -->
+      <div class="anim-badge inline-flex items-center gap-2 mb-4">
+        <span style="width:8px;height:8px;background:#FF6B4A;border-radius:50%;display:inline-block;flex-shrink:0;"></span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;color:rgba(247,245,240,0.85);text-transform:uppercase;">
+          <span class="es">Escuela de Surf · Tenerife</span>
+          <span class="en">Surf School · Tenerife</span>
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="font-bebas anim-h1 leading-none" style="font-size:clamp(3.6rem,14vw,7rem);color:#F7F5F0;line-height:0.95;">
+        <span class="es">Coge tu<br/>primera ola<br/>hoy.</span>
+        <span class="en">Catch your<br/>first wave<br/>today.</span>
+      </h1>
+
+      <!-- Sub -->
+      <p class="anim-sub mt-4 mb-6" style="font-size:1rem;color:rgba(247,245,240,0.82);max-width:30rem;line-height:1.55;">
+        <span class="es">Clases para todos los niveles. Equipamiento incluido. Monitores certificados.</span>
+        <span class="en">All levels welcome. Equipment included. Certified instructors.</span>
+      </p>
+
+      <!-- CTA -->
+      <a href="#" class="btn-coral anim-cta">
+        <span class="es">Reservar Clase</span>
+        <span class="en">Book a Lesson</span>
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip mt-8">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+        <!-- Stat 1 -->
+        <div style="padding:1.1rem 0.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.22);">
+          <div class="font-bebas" style="font-size:2rem;color:#F7F5F0;line-height:1;">Desde €45</div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;color:rgba(247,245,240,0.78);text-transform:uppercase;margin-top:2px;">
+            <span class="es">por sesión</span>
+            <span class="en">per session</span>
+          </div>
+        </div>
+        <!-- Stat 2 -->
+        <div style="padding:1.1rem 0.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.22);">
+          <div class="font-bebas" style="font-size:2rem;color:#F7F5F0;line-height:1;">4.9 ★</div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;color:rgba(247,245,240,0.78);text-transform:uppercase;margin-top:2px;">
+            <span class="es">valoración media</span>
+            <span class="en">avg. rating</span>
+          </div>
+        </div>
+        <!-- Stat 3 -->
+        <div style="padding:1.1rem 0.5rem;text-align:center;">
+          <div class="font-bebas" style="font-size:2rem;color:#F7F5F0;line-height:1;">2h</div>
+          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;color:rgba(247,245,240,0.78);text-transform:uppercase;margin-top:2px;">
+            <span class="es">por clase</span>
+            <span class="en">per class</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────── FEATURE CARDS ── -->
+  <section style="background:#F7F5F0;padding:4rem 1.25rem;">
+    <!-- Section label -->
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#FF6B4A;">
+        <span class="es">Por qué elegirnos</span>
+        <span class="en">Why choose us</span>
+      </span>
+      <h2 class="font-bebas" style="font-size:clamp(2.4rem,8vw,3.6rem);color:#0A2540;line-height:1;margin-top:0.3rem;">
+        <span class="es">La experiencia completa</span>
+        <span class="en">The full experience</span>
+      </h2>
+    </div>
+
+    <!-- Cards grid -->
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:1100px;margin:0 auto;">
+
+      <!-- Card 1 -->
+      <div class="feature-card anim-card-1">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/390051/pexels-photo-390051.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Surf lesson for all levels"
+            onerror="this.style.visibility='hidden'"
+          />
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:1.9rem;margin-bottom:0.6rem;">🌊</div>
+          <h3 class="font-bebas" style="font-size:1.8rem;color:#0A2540;line-height:1;margin-bottom:0.5rem;">
+            <span class="es">Todos los Niveles</span>
+            <span class="en">All Levels Welcome</span>
+          </h3>
+          <p style="font-size:0.92rem;line-height:1.6;color:#3a5068;">
+            <span class="es">Desde tu primera vez hasta mejorar tu técnica — adaptamos cada clase a ti.</span>
+            <span class="en">First-timer or improving your technique — every class is tailored to you.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card anim-card-2">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/1533771/pexels-photo-1533771.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Complete surf equipment included"
+            onerror="this.style.visibility='hidden'"
+          />
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:1.9rem;margin-bottom:0.6rem;">🏄</div>
+          <h3 class="font-bebas" style="font-size:1.8rem;color:#0A2540;line-height:1;margin-bottom:0.5rem;">
+            <span class="es">Equipo Completo Incluido</span>
+            <span class="en">Full Kit Included</span>
+          </h3>
+          <p style="font-size:0.92rem;line-height:1.6;color:#3a5068;">
+            <span class="es">Tabla, traje de neopreno y chaleco salvavidas. No necesitas traer nada.</span>
+            <span class="en">Board, wetsuit and life vest. Nothing to bring but yourself.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card anim-card-3">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Session video included"
+            onerror="this.style.visibility='hidden'"
+          />
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:1.9rem;margin-bottom:0.6rem;">🎥</div>
+          <h3 class="font-bebas" style="font-size:1.8rem;color:#0A2540;line-height:1;margin-bottom:0.5rem;">
+            <span class="es">Vídeo de tu Clase</span>
+            <span class="en">Session Video Included</span>
+          </h3>
+          <p style="font-size:0.92rem;line-height:1.6;color:#3a5068;">
+            <span class="es">Te grabamos surfeando para que puedas revisar tu técnica y compartirlo.</span>
+            <span class="en">We film your session so you can review your technique and share it.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Desktop 3-col grid override ── -->
+    <style>
+      @media (min-width: 768px) {
+        .cards-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      }
+    </style>
+  </section>
+
+  <!-- ── Inline desktop override via Tailwind config not available, so re-render grid with a div id ── -->
+  <script>
+    (function() {
+      var grid = document.querySelector('[data-cards-grid]');
+    })();
+  </script>
+  <style>
+    @media (min-width: 768px) {
+      section:nth-of-type(2) > div:last-of-type {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+  </style>
+
+  <!-- ─────────────────────────────────────── CTA CLOSE ── -->
+  <section class="cta-section" style="padding:5rem 1.25rem;text-align:center;">
+    <!-- Decorative coral bar -->
+    <div style="width:3rem;height:4px;background:#FF6B4A;border-radius:2px;margin:0 auto 1.5rem;"></div>
+
+    <h2 class="font-bebas" style="font-size:clamp(2.8rem,11vw,5.5rem);color:#F7F5F0;line-height:0.95;margin-bottom:1.25rem;">
+      <span class="es">TU OLA TE ESTÁ ESPERANDO</span>
+      <span class="en">YOUR WAVE IS WAITING</span>
+    </h2>
+
+    <p style="font-size:1rem;color:rgba(247,245,240,0.72);max-width:26rem;margin:0 auto 2.2rem;line-height:1.6;">
+      <span class="es">Plazas limitadas cada día. Reserva ahora y asegura tu lugar.</span>
+      <span class="en">Limited spots daily. Book now to secure yours.</span>
+    </p>
+
+    <a href="#" class="btn-coral" style="font-size:1.05rem;">
+      <span class="es">Reservar Ahora →</span>
+      <span class="en">Book Now →</span>
+    </a>
+
+    <!-- Trust micro-line -->
+    <p style="margin-top:1.4rem;font-size:0.78rem;color:rgba(247,245,240,0.38);letter-spacing:0.06em;">
+      <span class="es">Sin compromiso · Cancelación gratuita 24h antes</span>
+      <span class="en">No commitment · Free cancellation 24h before</span>
+    </p>
+  </section>
+
+
+  <!-- ─── LANGUAGE TOGGLE ──────────────────────────────────────── -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;align-items:center;background:rgba(0,0,0,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:999px;overflow:hidden;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;">
+    <button id="btn-es" onclick="setLang('es')" style="padding:.5rem 1.15rem;color:#fff;background:rgba(255,255,255,0.18);border:none;cursor:pointer;transition:background .2s;">ES</button>
+    <button id="btn-en" onclick="setLang('en')" style="padding:.5rem 1.15rem;color:rgba(255,255,255,0.55);background:transparent;border:none;cursor:pointer;transition:background .2s,color .2s;">EN</button>
+  </div>
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l === 'en');
+      document.getElementById('btn-es').style.background  = l === 'es' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-es').style.color       = l === 'es' ? '#fff' : 'rgba(255,255,255,0.55)';
+      document.getElementById('btn-en').style.background  = l === 'en' ? 'rgba(255,255,255,0.18)' : 'transparent';
+      document.getElementById('btn-en').style.color       = l === 'en' ? '#fff' : 'rgba(255,255,255,0.55)';
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- PITCH NOTES
+  • La mayoría de escuelas de surf en Tenerife tienen webs lentas, con fotos pixeladas y sin precio visible — este teaser muestra el precio desde el primer segundo (Desde €45), elimina la fricción y aumenta la tasa de conversión directa.
+  • La sección de vídeo de clase es un diferenciador emocional potente: los clientes no solo compran una lección, compran un recuerdo compartible — algo que las webs actuales de la competencia nunca destacan.
+  • El toggle ES/EN convierte a los turistas internacionales en clientes potenciales desde el primer vistazo, sin necesidad de webs duplicadas ni plugins de traducción que ralentizan la carga.
+-->
